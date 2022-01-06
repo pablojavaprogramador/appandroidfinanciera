@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/telcel_datos"
+        android:icon="@drawable/baseline_satellite_alt_24"
+        android:title="Edicion"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/compartir"
+        android:icon="@drawable/baseline_share_24"
+        android:title="Compartir"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_guardar"
+        android:title="Guardar"
+        android:layout_gravity="left"
+        android:fitsSystemWindows="true"/>
+
+    <item
+        android:id="@+id/send_action"
+        android:icon="@drawable/baseline_satellite_alt_24"
+        android:title="Enviar" />
+    <item
+        android:id="@+id/cerrar_Aplicacion"
+        android:icon="@drawable/baseline_satellite_alt_24"
+        android:title="Salir de la App" />
+
+</menu>

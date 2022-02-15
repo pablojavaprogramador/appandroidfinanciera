@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_perfil"
-        android:name="com.touchizen.drawerwithbottomnavigation.ui.gallery.PerfilFragment"
+        android:name="com.touchizen.drawerwithbottomnavigation.ui.perfil.PerfilFragment"
         android:label="@string/menu_perfil"
         tools:layout="@layout/fragment_perfil" />
 

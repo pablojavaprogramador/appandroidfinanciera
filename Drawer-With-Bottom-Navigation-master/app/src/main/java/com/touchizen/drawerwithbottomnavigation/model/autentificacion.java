@@ -1,6 +1,6 @@
 package com.touchizen.drawerwithbottomnavigation.model;
 
-public class authenticate {
+public class autentificacion {
     private String username;
     private String password;
     private boolean rememberMe;

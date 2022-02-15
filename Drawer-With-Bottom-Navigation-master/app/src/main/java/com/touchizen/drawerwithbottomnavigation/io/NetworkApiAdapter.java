@@ -11,7 +11,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RegistroClientesApiAdapter {
+public class NetworkApiAdapter {
     private static RegistroClientesApiService API_SERVICE;
 
     public static RegistroClientesApiService getApiService() {
@@ -25,13 +25,14 @@ public class RegistroClientesApiAdapter {
      //   httpClient.addInterceptor(logging);
 
 
+        final String token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTY0NzQ4NjYzM30.wLCf4vpioOLKOidB_e9eQjClORlxrDokxv35RNb1qS9K0fEvldqCoNKvY19Ov_T507McaRKQJ-1JijbKHi4S-g";
 
 
         OkHttpClient httpClient = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
             @Override
             public Response intercept(Chain chain) throws IOException {
                 Request newRequest  = chain.request().newBuilder()
-                        .addHeader("Authorization", "Bearer " + "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTY0NzQ4MDI3Mn0.66kpkpePGHLqt2qhE17L9hq9kQ5Q6e_V9H8zEEiiVR9w55Zargi5arWCsqoBfW9PrA4KgNxAPewvWN0ijWuqzQ")
+                        .addHeader("Authorization", "Bearer " + token)
                         .build();
 
                 return chain.proceed(newRequest);

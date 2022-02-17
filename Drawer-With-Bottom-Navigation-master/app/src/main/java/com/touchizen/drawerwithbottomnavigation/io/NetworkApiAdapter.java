@@ -12,9 +12,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetworkApiAdapter {
-    private static RegistroClientesApiService API_SERVICE;
+    private static NeworkApiService API_SERVICE;
 
-    public static RegistroClientesApiService getApiService() {
+    public static NeworkApiService getApiService() {
 
         // Creamos un interceptor y le indicamos el log level a usar
         final HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
@@ -52,7 +52,7 @@ public class NetworkApiAdapter {
                   //  .client(httpClient.build()) // <-- se utiliza cuando ya no se incorpora el token
 
                     .build();
-            API_SERVICE = retrofit.create(RegistroClientesApiService.class);
+            API_SERVICE = retrofit.create(NeworkApiService.class);
         }
 
         return API_SERVICE;

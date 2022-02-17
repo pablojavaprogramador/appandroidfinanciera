@@ -13,9 +13,16 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
 
+import com.google.android.material.navigation.NavigationView;
 import com.touchizen.drawerwithbottomnavigation.R;
 import com.touchizen.drawerwithbottomnavigation.io.NetworkApiAdapter;
+import com.touchizen.drawerwithbottomnavigation.io.NeworkApiService;
+import com.touchizen.drawerwithbottomnavigation.io.responses.ClienteResponse;
+import com.touchizen.drawerwithbottomnavigation.model.Cliente;
 import com.touchizen.drawerwithbottomnavigation.model.Clientes;
 
 import java.util.ArrayList;
@@ -24,47 +31,63 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PerfilFragment extends Fragment implements Callback<ArrayList<Clientes>> {
-
-
-
+public class PerfilFragment extends Fragment implements Callback<ClienteResponse> {
+    public TextView textView=null;
+    public  TextView textNombreView=null;
+    public  TextView  textEmailView=null;
+    public  TextView   textNumeroContratoView=null;
+    public  TextView textNumeroTelefonoView=null;
+    public  TextView  textSaldoView=null;
+    public  TextView  textCreditoDisponibleView=null;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+        obtenerDatosClientes();
 
 
 
         View root = inflater.inflate(R.layout.fragment_perfil, container, false);
 
+      //  Call<ArrayList<Clientes>> call= NetworkApiAdapter.getApiService().getClientes();
+        // call.enqueue(this);
+         textView = root.findViewById(R.id.text_gallery);
+        textNombreView=root.findViewById(R.id.text_nombre_perfil);
+        textEmailView=root.findViewById(R.id.text_email);
+        textNumeroContratoView=root.findViewById(R.id.text_numero_contrato);
+        textNumeroTelefonoView=root.findViewById(R.id.text_telefono);
 
-        Call<ArrayList<Clientes>> call= NetworkApiAdapter.getApiService().getClientes();
-         call.enqueue(this);
-
-
-        final TextView textView = root.findViewById(R.id.text_gallery);
-        final TextView textNombreView=root.findViewById(R.id.text_nombre_perfil);
-        textNombreView.setText("Rene Cortes Trejo");
 
         return root;
     }
 
-    @SuppressLint("LongLogTag")
-    @Override
-    public void onResponse(Call<ArrayList<Clientes>> call, Response<ArrayList<Clientes>> response) {
-        if(response.isSuccessful()){
-
-          ArrayList<Clientes>clientes= response.body();
-
-          Log.d("onResponse PerfilFragment","Tamaño de Clientes" +clientes.size()+clientes.get(0).getNombre());
-
-        }
+    private void obtenerDatosClientes() {
+        String idCliente = "9";
+        Call<ClienteResponse>  call= NetworkApiAdapter.getApiService().getCliente(idCliente);
+        call.enqueue(this);
     }
 
-    @SuppressLint("LongLogTag")
-    @Override
-    public void onFailure(Call<ArrayList<Clientes>> call, Throwable t) {
 
-        Log.d("onResponse PerfilFragment","Error" +t.toString());
+    @Override
+    public void onResponse(Call<ClienteResponse> call, Response<ClienteResponse> response) {
+if(response.isSuccessful()){
+    ClienteResponse respuestaServicioCliente=response.body();
+    poblarPerfil(response.body());
+}
+    }
+
+    private void poblarPerfil(ClienteResponse body) {
+        textNombreView.setText(body.getNombre()+" "+body.getApellidoPaterno()+" "+body.getApellidoMaterno());
+        textNumeroContratoView.setText("Contrato Definido");
+        textNumeroTelefonoView.setText(body.getTelefono());
+        textEmailView.setText(body.getCorreoElectronico());
+//        textSaldoView.setText("30000");
+//        textCreditoDisponibleView.setText("90000");
+   }
+
+
+    @Override
+    public void onFailure(Call<ClienteResponse> call, Throwable t) {
 
     }
 }

@@ -1,14 +1,6 @@
 package com.touchizen.drawerwithbottomnavigation.ui.registroCliente;
 
-import static androidx.core.content.ContextCompat.getSystemService;
-
 import android.annotation.SuppressLint;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,24 +11,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.gson.Gson;
 import com.touchizen.drawerwithbottomnavigation.R;
 import com.touchizen.drawerwithbottomnavigation.io.NetworkApiAdapter;
 import com.touchizen.drawerwithbottomnavigation.io.responses.ApiResponseError;
-import com.touchizen.drawerwithbottomnavigation.io.responses.ClienteResponse;
 import com.touchizen.drawerwithbottomnavigation.io.responses.FieldError;
 import com.touchizen.drawerwithbottomnavigation.io.responses.SimpleResponse;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+//Cambio de Fragments
 
+//
 public class RegistroFragment extends Fragment implements Callback<Void>  {
 
 
@@ -48,11 +39,15 @@ public class RegistroFragment extends Fragment implements Callback<Void>  {
 
     TextView registro=null;
 
+    @SuppressLint("ResourceType")
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
+
+
+
          View root = inflater.inflate(R.layout.fragment_registro, container, false);
-        nombreCliente = root.findViewById(R.id.editTextCliente);
+        nombreCliente = root.findViewById(R.id.id_Persona);
         correElectronico = root.findViewById(R.id.editTextEmailAddress);
         password = root.findViewById(R.id.editTextPassword);
         confirmarPassword = root.findViewById(R.id.editTextConfirmarPassword);
@@ -68,7 +63,17 @@ public class RegistroFragment extends Fragment implements Callback<Void>  {
                 enviodatos.setPassword(password.getText().toString());
                 RegistrarClientes(enviodatos);
 
-
+                // Crear fragmento de tu clase
+              //  Fragment fragment = new ReferenciasPersonalesFragment();
+// Obtener el administrador de fragmentos a través de la actividad
+             //   FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+// Definir una transacción
+             //    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+// Remplazar el contenido principal por el fragmento R.id.drawer_layout
+          //      fragmentTransaction.replace(R.id.drawer_layout, fragment);
+            //    fragmentTransaction.addToBackStack(null);
+// Cambiar
+           //     fragmentTransaction.commit();
             }
         });
          return root;

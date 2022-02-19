@@ -29,9 +29,9 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="@string/menu_share" />
             <item
-                android:id="@+id/nav_chatbot"
+                android:id="@+id/nav_referencias"
                 android:icon="@drawable/ic_menu_chatbot"
-                android:title="@string/menu_ChatBot" />
+                android:title="@string/menu_ReferenciasPersonales" />
         </menu>
     </item>
 

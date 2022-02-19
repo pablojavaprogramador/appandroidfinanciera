@@ -21,23 +21,23 @@ public class NetworkApiAdapter {
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         // Asociamos el interceptor a las peticiones
-      //  OkHttpClient.Builder httpClient = new OkHttpClient.Builder();// sin el header bearer token
-     //   httpClient.addInterceptor(logging);
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();// sin el header bearer token
+       httpClient.addInterceptor(logging);
 
 
         final String token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTY0NzQ4NjYzM30.wLCf4vpioOLKOidB_e9eQjClORlxrDokxv35RNb1qS9K0fEvldqCoNKvY19Ov_T507McaRKQJ-1JijbKHi4S-g";
 
 
-        OkHttpClient httpClient = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
-            @Override
-            public Response intercept(Chain chain) throws IOException {
-                Request newRequest  = chain.request().newBuilder()
-                        .addHeader("Authorization", "Bearer " + token)
-                        .build();
+  //      OkHttpClient httpClient = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
+    //        @Override
+      //      public Response intercept(Chain chain) throws IOException {
+        //        Request newRequest  = chain.request().newBuilder()
+          //              .addHeader("Authorization", "Bearer " + token)
+            //            .build();
 
-                return chain.proceed(newRequest);
-            }
-        }).build();
+              //  return chain.proceed(newRequest);
+            //}
+        //}).build();
 
 
 
@@ -48,8 +48,8 @@ public class NetworkApiAdapter {
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(baseUrl)
                     .addConverterFactory(GsonConverterFactory.create())
-                    .client(httpClient) // <-- usamos el log level
-                  //  .client(httpClient.build()) // <-- se utiliza cuando ya no se incorpora el token
+                 //   .client(httpClient) // <-- usamos el log level
+                    .client(httpClient.build()) // <-- se utiliza cuando ya no se incorpora el token
 
                     .build();
             API_SERVICE = retrofit.create(NeworkApiService.class);

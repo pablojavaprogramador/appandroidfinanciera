@@ -6,49 +6,43 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_home_black_24dp"
             android:title="@string/menu_home" />
-        <item
-            android:id="@+id/nav_perfil"
-            android:icon="@drawable/ic_menu_perfil"
-            android:title="@string/menu_perfil" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
-        <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_tools" />
+
     </group>
 
-    <item android:title="Comunicacion">
+    <item android:title="Datos Registrados">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
+                android:id="@+id/nav_registrocliente"
+                android:icon="@drawable/ic_menu_perfil"
+                android:title="@string/menu_registroClientes" />
+            <item
+                android:id="@+id/nav_slideshow"
+                android:icon="@drawable/baseline_location_city_24"
+                android:title="@string/menu_slideshow" />
+            <item
+                android:id="@+id/nav_tools"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="@string/menu_tools" />
             <item
                 android:id="@+id/nav_referencias"
-                android:icon="@drawable/ic_menu_chatbot"
+                android:icon="@drawable/baseline_settings_accessibility_24"
                 android:title="@string/menu_ReferenciasPersonales" />
+
+
+
         </menu>
     </item>
 
-    <item android:title="Ayuda">
+    <item android:title="Legal">
         <menu>
-            <item
-                android:id="@+id/nav_ayuda"
-                android:icon="@drawable/ic_menu_help"
-                android:title="@string/menu_ayuda" />
+
             <item
                 android:id="@+id/nav_terminos"
                 android:icon="@drawable/ic_menu_terminos"
                 android:title="@string/menu_terminos" />
         </menu>
     </item>
-    <item
-        android:id="@+id/cerrar_Aplicacion"
-        android:icon="@drawable/ic_menu_close"
-        android:title="@string/menu_cerrar" />
+
 </menu>

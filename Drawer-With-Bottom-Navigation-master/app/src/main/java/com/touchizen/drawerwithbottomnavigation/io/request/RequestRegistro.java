@@ -1,6 +1,6 @@
-package com.touchizen.drawerwithbottomnavigation.io.responses;
+package com.touchizen.drawerwithbottomnavigation.io.request;
 
-public class SimpleResponse {
+public class RequestRegistro {
     private String login;
     private String password;
     private String email;

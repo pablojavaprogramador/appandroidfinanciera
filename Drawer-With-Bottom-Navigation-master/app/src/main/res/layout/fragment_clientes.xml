@@ -6,17 +6,17 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/id_nombre_Label"
+        android:id="@+id/id_nombre_Label_Cliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre de la Referencia"
+        android:text="Ingresa tu Nombre"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.414"
+        app:layout_constraintHorizontal_bias="0.367"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edit_Text_Nombre"
+        android:id="@+id/edit_Text_Nombre_Cliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -24,110 +24,111 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_nombre_Label" />
+        app:layout_constraintTop_toBottomOf="@+id/id_nombre_Label_Cliente" />
 
     <TextView
-        android:id="@+id/id_apellidoPaterno_label"
+        android:id="@+id/id_apellidoPaterno_label_Cliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ingresa su Apellido Paterno"
+        android:text="Ingresa tu Apellido Paterno"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.443"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_Text_Nombre" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_Text_Nombre_Cliente" />
 
     <EditText
-        android:id="@+id/edit_Text_Apellido_Paterno"
+        android:id="@+id/edit_Text_Apellido_Paterno_Cliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_apellidoPaterno_label" />
+        app:layout_constraintTop_toBottomOf="@+id/id_apellidoPaterno_label_Cliente" />
 
     <TextView
-        android:id="@+id/id_apellidoMaterno_label"
+        android:id="@+id/id_apellidoMaterno_label_Cliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ingresa su Apellido Materno"
+        android:text="Ingresa tu Apellido Materno"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.449"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_Text_Apellido_Paterno" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_Text_Apellido_Paterno_Cliente" />
 
     <EditText
-        android:id="@+id/edit_Text_ApellidoMaterno"
+        android:id="@+id/edit_Text_ApellidoMaterno_Cliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_apellidoMaterno_label" />
+        app:layout_constraintTop_toBottomOf="@+id/id_apellidoMaterno_label_Cliente" />
 
     <TextView
-        android:id="@+id/id_fechadeNacimiento_label"
+        android:id="@+id/id_fechadeNacimiento_label_Cliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ingresa su Fecha de Nacimiento"
+        android:text="Ingresa tu Fecha de Nacimiento"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_Text_ApellidoMaterno" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_Text_ApellidoMaterno_Cliente" />
 
     <EditText
-        android:id="@+id/edit_Text_fechadeNacimiento"
+        android:id="@+id/edit_Text_fechadeNacimiento_Cliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_fechadeNacimiento_label" />
+        app:layout_constraintTop_toBottomOf="@+id/id_fechadeNacimiento_label_Cliente" />
 
     <TextView
-        android:id="@+id/id_Celular_label"
+        android:id="@+id/id_Celular_label_Cliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ingresa su Numero Celular"
+        android:text="Ingresa tu Numero Celular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.431"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_Text_fechadeNacimiento" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_Text_fechadeNacimiento_Cliente" />
 
     <EditText
-        android:id="@+id/edit_Text_Celular"
+        android:id="@+id/edit_Text_Celular_Cliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_Celular_label" />
+        app:layout_constraintTop_toBottomOf="@+id/id_Celular_label_Cliente" />
 
     <TextView
-        android:id="@+id/id_Telefono_label"
+        android:id="@+id/id_Telefono_label_Cliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ingresa su Telefono de Casa"
+        android:text="Ingresa tu Telefono de Casa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.453"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_Text_Celular" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_Text_Celular_Cliente" />
 
     <EditText
-        android:id="@+id/edit_Text_Telefono"
+        android:id="@+id/edit_Text_Telefono_Cliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_Telefono_label" />
+        app:layout_constraintTop_toBottomOf="@+id/id_Telefono_label_Cliente" />
+
 
 
     <Button
-        android:id="@+id/buttonRegistrarReferencia"
+        android:id="@+id/buttonRegistrar_Cliente"
         android:layout_width="140dp"
         android:layout_height="50dp"
         android:text="Enviar"
@@ -135,19 +136,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_Text_Telefono"
+        app:layout_constraintTop_toBottomOf="@+id/edit_Text_Telefono_Cliente"
         app:layout_constraintVertical_bias="0.102" />
 
     <TextView
-        android:id="@+id/id_respuestaReferencia_label"
+        android:id="@+id/id_respuestaReferencia_label_Cliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonRegistrarReferencia" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/buttonRegistrar_Cliente" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

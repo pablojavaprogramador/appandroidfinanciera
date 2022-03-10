@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/nav_share"
-        android:name="com.touchizen.drawerwithbottomnavigation.ui.registroCliente.RegistroFragment"
+        android:name="com.touchizen.drawerwithbottomnavigation.ui.registroUsuario.RegistroFragment"
         android:label="@string/menu_share"
         tools:layout="@layout/fragment_registro" />
 
@@ -40,10 +40,10 @@
         android:name="com.touchizen.drawerwithbottomnavigation.ui.referencias.ReferenciasPersonalesFragment"
         android:label="@string/title_referencias" />
     <fragment
-        android:id="@+id/nav_ayuda"
-        android:name="com.touchizen.drawerwithbottomnavigation.ui.tools.AyudaFragment"
-        android:label="@string/menu_ayuda"
-        tools:layout="@layout/fragment_ayuda" />
+        android:id="@+id/nav_registrocliente"
+        android:name="com.touchizen.drawerwithbottomnavigation.ui.tools.RegistrodeClientesFragment"
+        android:label="Registro Clientes"
+        tools:layout="@layout/fragment_clientes" />
     <fragment
         android:id="@+id/nav_terminos"
         android:name="com.touchizen.drawerwithbottomnavigation.ui.tools.TerminosFragment"

@@ -1,7 +1,7 @@
-package com.touchizen.drawerwithbottomnavigation.model;
+package com.touchizen.drawerwithbottomnavigation.io.request;
 
 public class Clientes {
-    private int id;
+
     private String nombre;
     private String apellidoMaterno;
     private String apellidoPaterno;
@@ -12,13 +12,6 @@ public class Clientes {
     private String celular;
     private String telefono;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNombre() {
         return nombre;

@@ -1,4 +1,4 @@
-package com.touchizen.drawerwithbottomnavigation.io.responses;
+package com.touchizen.drawerwithbottomnavigation.io.responses.error;
 
 public class FieldError {
 

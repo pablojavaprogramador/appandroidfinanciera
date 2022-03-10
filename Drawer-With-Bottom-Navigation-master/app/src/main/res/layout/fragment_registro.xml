@@ -76,7 +76,7 @@
 
 
         <Button
-            android:id="@+id/buttonRegistrarCliente"
+            android:id="@+id/buttonRegistrarUsuario"
             android:layout_width="169dp"
             android:layout_height="56dp"
             android:text="Registrarte"
@@ -130,7 +130,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonRegistrarCliente" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonRegistrarUsuario" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

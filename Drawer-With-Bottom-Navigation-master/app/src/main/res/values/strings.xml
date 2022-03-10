@@ -10,10 +10,11 @@
     <string name="menu_home">Home</string>
     <string name="menu_perfil">Perfil</string>
     <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
+    <string name="menu_slideshow">Domicilio</string>
+    <string name="menu_tools">Empleo</string>
     <string name="menu_share">Share</string>
     <string name="menu_ayuda">Ayuda</string>
+    <string name="menu_registroClientes">Mi Perfil</string>
     <string name="menu_send">Send</string>
     <string name="menu_ChatBot">ChatBot</string>
     <string name="menu_ReferenciasPersonales">Referencias Personales</string>
@@ -21,9 +22,9 @@
     <string name="menu_cerrar">Cerrar Aplicacion</string>
     <!-- Bottom Navigation -->
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_dashboard">Estados</string>
     <string name="title_notifications">Notificaciones</string>
-    <string name="title_trueque">trueque</string>
+    <string name="title_trueque">Ayuda</string>
     <string name="title_negocio">Negocio</string>
     <string name="title_referencias">Referencias</string>
     <!-- TODO: Remove or change this placeholder text -->

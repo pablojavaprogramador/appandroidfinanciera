@@ -8,13 +8,47 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable-v21/baseline_account_balance_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable-v21/baseline_add_circle_outline_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable-v21/baseline_help_outline_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable-v21/baseline_live_help_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable-v21/baseline_location_city_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable-v21/baseline_settings_accessibility_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable-v21/ic_menu_manage.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable-v21/ic_menu_send.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable-v21/ic_menu_share.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable/baseline_paid_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable/baseline_satellite_alt_20.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable/baseline_satellite_alt_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable/baseline_share_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable/baseline_shopping_cart_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable/ic_billboard.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable/ic_favourite.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable/ic_launcher_background.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable/ic_settings.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable/ic_user.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/drawable/side_nav_bar.xml" value="0.19583333333333333" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/layout/activity_main.xml" value="0.17692307692307693" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/layout/bot_msg.xml" value="0.17692307692307693" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/layout/fragment_ayuda.xml" value="0.12291666666666666" />
         <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/layout/fragment_chatbot.xml" value="0.1" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/layout/fragment_clientes.xml" value="0.4466666666666667" />
         <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
         <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/layout/fragment_notifications.xml" value="0.17692307692307693" />
         <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/layout/fragment_perfil.xml" value="0.10520833333333333" />
         <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/layout/fragment_referencias.xml" value="0.3333333333333333" />
         <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/layout/fragment_registro.xml" value="0.22" />
-        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/layout/fragment_tools.xml" value="0.1" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/layout/fragment_registroClientes.xml" value="0.12291666666666666" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/layout/fragment_registro_Usuario.xml" value="0.1" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/layout/fragment_registroclientes.xml" value="0.1" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/layout/fragment_slideshow.xml" value="0.17692307692307693" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/layout/fragment_terminos.xml" value="0.17692307692307693" />
+        <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/layout/fragment_tools.xml" value="0.3333333333333333" />
         <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/layout/nav_header_main.xml" value="0.1" />
         <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/layout/user_msg.xml" value="0.18" />
         <entry key="..\:/PROYECTO FINTECH/App Android/Drawer-With-Bottom-Navigation-master/app/src/main/res/menu/activity_main_drawer.xml" value="0.1" />

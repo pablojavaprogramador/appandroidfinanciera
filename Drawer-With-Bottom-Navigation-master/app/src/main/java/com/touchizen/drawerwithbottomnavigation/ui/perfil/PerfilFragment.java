@@ -1,31 +1,17 @@
 package com.touchizen.drawerwithbottomnavigation.ui.perfil;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.AppBarConfiguration;
 
-import com.google.android.material.navigation.NavigationView;
 import com.touchizen.drawerwithbottomnavigation.R;
 import com.touchizen.drawerwithbottomnavigation.io.NetworkApiAdapter;
-import com.touchizen.drawerwithbottomnavigation.io.NeworkApiService;
 import com.touchizen.drawerwithbottomnavigation.io.responses.ClienteResponse;
-import com.touchizen.drawerwithbottomnavigation.model.Cliente;
-import com.touchizen.drawerwithbottomnavigation.model.Clientes;
-
-import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;

@@ -1,4 +1,4 @@
-package com.touchizen.drawerwithbottomnavigation.ui.registroCliente;
+package com.touchizen.drawerwithbottomnavigation.ui.registroUsuario;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -16,9 +16,9 @@ import androidx.fragment.app.Fragment;
 import com.google.gson.Gson;
 import com.touchizen.drawerwithbottomnavigation.R;
 import com.touchizen.drawerwithbottomnavigation.io.NetworkApiAdapter;
-import com.touchizen.drawerwithbottomnavigation.io.responses.ApiResponseError;
-import com.touchizen.drawerwithbottomnavigation.io.responses.FieldError;
-import com.touchizen.drawerwithbottomnavigation.io.responses.SimpleResponse;
+import com.touchizen.drawerwithbottomnavigation.io.responses.error.ApiResponseError;
+import com.touchizen.drawerwithbottomnavigation.io.responses.error.FieldError;
+import com.touchizen.drawerwithbottomnavigation.io.request.RequestRegistro;
 
 import java.util.List;
 
@@ -52,12 +52,12 @@ public class RegistroFragment extends Fragment implements Callback<Void>  {
         password = root.findViewById(R.id.editTextPassword);
         confirmarPassword = root.findViewById(R.id.editTextConfirmarPassword);
         respuestaRegistro = root.findViewById(R.id.respuestaRegistro);
-        Button boton = root.findViewById(R.id.buttonRegistrarCliente);
+        Button boton = root.findViewById(R.id.buttonRegistrarUsuario);
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i("boton","se presiono");
-                SimpleResponse enviodatos=new SimpleResponse();
+                RequestRegistro enviodatos=new RequestRegistro();
                 enviodatos.setLogin(nombreCliente.getText().toString());
                 enviodatos.setEmail(correElectronico.getText().toString());
                 enviodatos.setPassword(password.getText().toString());
@@ -83,9 +83,9 @@ public class RegistroFragment extends Fragment implements Callback<Void>  {
 
 
     @SuppressLint("LongLogTag")
-    private void RegistrarClientes(SimpleResponse enviodatos) {
+    private void RegistrarClientes(RequestRegistro enviodatos) {
 
-        Call<Void> call = NetworkApiAdapter.getApiService().registroCliente(enviodatos);
+        Call<Void> call = NetworkApiAdapter.getApiService().registroUsuarios(enviodatos);
         call.enqueue(this);
 
         Log.i("entro en Registrar Cliente","ewqe");

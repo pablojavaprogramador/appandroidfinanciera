@@ -6,6 +6,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.view.LayoutInflater;
 import android.view.View;
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         initToolbar();
         initFab();
         initNavigation();
@@ -58,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                 Snackbar.make(view, "Aun no hay notificaciones", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -127,16 +129,6 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    @Override
-    public void onBackPressed() {
 
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        }
-        else {
-            super.onBackPressed();
-        }
-
-    }
 
 }

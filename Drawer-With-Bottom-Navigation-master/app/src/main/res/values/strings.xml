@@ -10,8 +10,8 @@
     <string name="menu_home">Home</string>
     <string name="menu_perfil">Perfil</string>
     <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Domicilio</string>
-    <string name="menu_tools">Empleo</string>
+    <string name="menu_domicilio">Mi Domicilio</string>
+    <string name="menu_empleos">Mi Empleo</string>
     <string name="menu_share">Share</string>
     <string name="menu_ayuda">Ayuda</string>
     <string name="menu_registroClientes">Mi Perfil</string>
@@ -23,8 +23,9 @@
     <!-- Bottom Navigation -->
     <string name="title_home">Home</string>
     <string name="title_dashboard">Estados</string>
+    <string name="title_oportunidades">Oportunidades</string>
     <string name="title_notifications">Notificaciones</string>
-    <string name="title_trueque">Ayuda</string>
+    <string name="title_ayuda">Ayuda</string>
     <string name="title_negocio">Negocio</string>
     <string name="title_referencias">Referencias</string>
     <!-- TODO: Remove or change this placeholder text -->

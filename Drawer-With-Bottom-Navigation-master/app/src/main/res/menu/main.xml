@@ -4,13 +4,17 @@
 
     <item
         android:id="@+id/telcel_datos"
-        android:icon="@drawable/baseline_satellite_alt_24"
-        android:title="Edicion"
+        android:icon="@drawable/baseline_logout_24"
+        android:title="Salir de la App"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/cerrar_Aplicacion"
+        android:id="@+id/Conexion"
         android:icon="@drawable/baseline_satellite_alt_24"
+        android:title="Salir de la App" />
+    <item
+        android:id="@+id/CharBot"
+        android:icon="@drawable/baseline_shopping_cart_24"
         android:title="Salir de la App" />
 
 </menu>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/id_calle_Label_domicilio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ingresa tu Calle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.34"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/edit_Text_Calle_Domiclio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.532"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_calle_Label_domicilio" />
+
+            <TextView
+                android:id="@+id/id_numeroExterior_label_Domicilio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ingresa tu numero Exterior"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.436"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_Text_Calle_Domiclio" />
+
+            <EditText
+                android:id="@+id/edit_Text_numeroExterior_Domicilio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.532"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_numeroExterior_label_Domicilio" />
+
+            <TextView
+                android:id="@+id/id_CodigoPostal_label_Domicilio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ingresa tu Codigo Postal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.416"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_Text_numeroExterior_Domicilio" />
+
+            <EditText
+                android:id="@+id/edit_Text_CodigoPostal_Domicilio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.532"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_CodigoPostal_label_Domicilio" />
+
+            <TextView
+                android:id="@+id/id_domicilioActual_label_Domicilio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ingresa tu Domicilio Actual"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.438"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_Text_CodigoPostal_Domicilio" />
+
+            <EditText
+                android:id="@+id/edit_Text_domicilioActual_Domicilio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.532"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_domicilioActual_label_Domicilio" />
+
+            <TextView
+                android:id="@+id/id_fechaAntiguedad_label_Domicilio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ingresa la Fecha de Antiguedad"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_Text_domicilioActual_Domicilio" />
+
+            <EditText
+                android:id="@+id/edit_Text_fechaAntiguedad_Domicilio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.532"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_fechaAntiguedad_label_Domicilio" />
+
+            <TextView
+                android:id="@+id/id_Manzana_label_Domicilio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ingresa tu manzana"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.375"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_Text_fechaAntiguedad_Domicilio" />
+
+            <EditText
+                android:id="@+id/edit_Text_Manzana_Domicilio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.532"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_Manzana_label_Domicilio" />
+
+
+            <TextView
+                android:id="@+id/id_edificio_label_Domicilio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ingresa tu Edificio"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.357"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_Text_Manzana_Domicilio" />
+
+            <EditText
+                android:id="@+id/edit_Text_edificio_Domicilio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.532"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_edificio_label_Domicilio" />
+
+
+            <Button
+                android:id="@+id/buttonRegistrarDomicilio"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:text="Enviar Domicilio"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_Text_edificio_Domicilio"
+                app:layout_constraintVertical_bias="0.102" />
+
+            <TextView
+                android:id="@+id/id_respuestaReferencia_label_Domicilio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonRegistrarDomicilio" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@android:drawable/ic_menu_mylocation" />
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

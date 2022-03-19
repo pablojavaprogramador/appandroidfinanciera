@@ -20,11 +20,11 @@
             <item
                 android:id="@+id/nav_slideshow"
                 android:icon="@drawable/baseline_location_city_24"
-                android:title="@string/menu_slideshow" />
+                android:title="@string/menu_domicilio" />
             <item
                 android:id="@+id/nav_tools"
                 android:icon="@drawable/ic_menu_manage"
-                android:title="@string/menu_tools" />
+                android:title="@string/menu_empleos" />
             <item
                 android:id="@+id/nav_referencias"
                 android:icon="@drawable/baseline_settings_accessibility_24"

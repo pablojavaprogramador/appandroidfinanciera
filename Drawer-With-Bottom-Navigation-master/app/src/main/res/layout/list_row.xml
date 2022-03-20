@@ -13,6 +13,7 @@
         android:text="Productos Que te pueden Interesar"
         android:textColor="#040404"
         android:typeface="sans"
+        android:textStyle="bold|italic"
         android:textSize="18dp"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/thumbnail" />

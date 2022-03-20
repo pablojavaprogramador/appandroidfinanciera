@@ -10,22 +10,19 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.touchizen.drawerwithbottomnavigation.R;
 import com.touchizen.drawerwithbottomnavigation.io.NetworkApiAdapter;
-import com.touchizen.drawerwithbottomnavigation.io.request.Clientes;
 import com.touchizen.drawerwithbottomnavigation.io.request.Empleos;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ToolsFragment extends Fragment implements Callback<Void> {
+public class EmpleosFragment extends Fragment implements Callback<Void> {
 private TextView calle_Empleo=null;
 private TextView cargoPublico_Empleo=null;
 private TextView codigoPostal_Empleo=null;
@@ -40,7 +37,7 @@ private TextView respuestaEmpleo=null;
                              ViewGroup container, Bundle savedInstanceState) {
         toolsViewModel =
                 ViewModelProviders.of(this).get(ToolsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_tools, container, false);
+        View root = inflater.inflate(R.layout.fragment_empleos, container, false);
         calle_Empleo= root.findViewById(R.id.edit_Text_Calle_Empleo);
      cargoPublico_Empleo= root.findViewById(R.id.edit_Text_CargoPublico_Empleo);
        codigoPostal_Empleo= root.findViewById(R.id.edit_Text_CodigoPostal_Empleo);

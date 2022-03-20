@@ -18,11 +18,11 @@
                 android:icon="@drawable/ic_menu_perfil"
                 android:title="@string/menu_registroClientes" />
             <item
-                android:id="@+id/nav_slideshow"
+                android:id="@+id/nav_domicilios"
                 android:icon="@drawable/baseline_location_city_24"
                 android:title="@string/menu_domicilio" />
             <item
-                android:id="@+id/nav_tools"
+                android:id="@+id/nav_empleos"
                 android:icon="@drawable/ic_menu_manage"
                 android:title="@string/menu_empleos" />
             <item

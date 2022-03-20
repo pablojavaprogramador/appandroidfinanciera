@@ -6,7 +6,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +21,7 @@ import com.touchizen.drawerwithbottomnavigation.io.NetworkApiAdapter;
 import com.touchizen.drawerwithbottomnavigation.io.request.RequestRegistro;
 import com.touchizen.drawerwithbottomnavigation.io.responses.error.ApiResponseError;
 import com.touchizen.drawerwithbottomnavigation.io.responses.error.FieldError;
+import com.touchizen.drawerwithbottomnavigation.ui.oportunidades.ListViewAdapterOportunidades;
 
 import java.util.List;
 
@@ -30,42 +33,62 @@ import retrofit2.Response;
 //
 public class NotificacionesFragment extends Fragment   {
 
+    ListViewAdapterNotificaciones adapter;
+    String[] fechaHora = new String[]{
+            "12/05/1987  3:30",
+            "12/05/1987  3:30",
+            "12/05/1987  3:30",
+            "12/05/1987  3:30"
+    };
 
-    public TextView nombreCliente=null;
-    public  TextView correElectronico=null;
-    public  TextView  password=null;
-    public  TextView  confirmarPassword=null;
-    public TextView respuestaRegistro=null;
+    String[] titulo = new String[]{
+            "Paga  Realizado      $1000",
+            "Cargo Realizado     $1000",
+            "Quieres ir de Vacaciones",
+            "Realiza tu pago antes del dia 27"
+    };
 
-    TextView registro=null;
+    String[] mensaje = new String[]{
+            "Movimientos",
+            "Movimientos",
+            "Promociones",
+            "Alertas",
+    };
 
-    @SuppressLint("ResourceType")
+    int[] imagenes = {
+            R.drawable.baseline_attach_money_24,
+            R.drawable.baseline_attach_money_24,
+            R.drawable.baseline_local_offer_24,
+            R.drawable.baseline_notifications_active_24
+
+    };
+
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-         View root = inflater.inflate(R.layout.fragment_notificaciones, container, false);
-        nombreCliente = root.findViewById(R.id.id_Persona);
-        correElectronico = root.findViewById(R.id.editTextEmailAddress);
-        password = root.findViewById(R.id.editTextPassword);
-        confirmarPassword = root.findViewById(R.id.editTextConfirmarPassword);
-        respuestaRegistro = root.findViewById(R.id.respuestaRegistro);
+        View root = inflater.inflate(R.layout.fragment_notificaciones, container, false);
+        final ListView lista = (ListView) root.findViewById(R.id.listView1);
+        adapter = new ListViewAdapterNotificaciones(this, fechaHora,titulo, mensaje,imagenes,inflater);
+        lista.setAdapter(adapter);
 
-                // Crear fragmento de tu clase
-              //  Fragment fragment = new ReferenciasPersonalesFragment();
-// Obtener el administrador de fragmentos a través de la actividad
-             //   FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-// Definir una transacción
-             //    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-// Remplazar el contenido principal por el fragmento R.id.drawer_layout
-          //      fragmentTransaction.replace(R.id.drawer_layout, fragment);
-            //    fragmentTransaction.addToBackStack(null);
-// Cambiar
-           //     fragmentTransaction.commit();
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView adapterView, View view, int i, long l) {
+                Toast.makeText(getActivity(), "presiono " + i, Toast.LENGTH_SHORT).show();
+            }
+        });
 
-         return root;
+        lista.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView adapterView, View view, int i, long l) {
+                Toast.makeText(getActivity(), "presiono LARGO " + i, Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+
+        return root;
     }
-
-
 
 
 

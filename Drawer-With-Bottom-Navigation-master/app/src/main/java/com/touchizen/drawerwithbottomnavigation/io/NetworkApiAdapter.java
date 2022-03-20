@@ -25,7 +25,7 @@ public class NetworkApiAdapter {
       // httpClient.addInterceptor(logging);
 
 
-        final String token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTY0NzQ4NjYzM30.wLCf4vpioOLKOidB_e9eQjClORlxrDokxv35RNb1qS9K0fEvldqCoNKvY19Ov_T507McaRKQJ-1JijbKHi4S-g";
+        final String token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTY1MDMxNDM4NX0.vPC_9-Jq2a4p-3CLPe2Nxt4JmwQDp1PBKvQq5VrAnZrwvtbk-OXLXUrSKmvRRjYq1N1Uym4M_r9anbVwDl4Riw";
 
 
        OkHttpClient httpClient = new OkHttpClient.Builder().addInterceptor(new Interceptor() {

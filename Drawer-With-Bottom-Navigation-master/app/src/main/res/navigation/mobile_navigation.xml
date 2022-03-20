@@ -18,27 +18,28 @@
         tools:layout="@layout/fragment_perfil" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_domicilios"
         android:name="com.touchizen.drawerwithbottomnavigation.ui.domicilios.DomicilioFragment"
         android:label="@string/menu_domicilio"
         tools:layout="@layout/fragment_domicilios" />
 
     <fragment
-        android:id="@+id/nav_tools"
-        android:name="com.touchizen.drawerwithbottomnavigation.ui.tools.ToolsFragment"
+        android:id="@+id/nav_empleos"
+        android:name="com.touchizen.drawerwithbottomnavigation.ui.tools.EmpleosFragment"
         android:label="@string/menu_empleos"
-        tools:layout="@layout/fragment_tools" />
+        tools:layout="@layout/fragment_empleos" />
 
     <fragment
-        android:id="@+id/nav_share"
+        android:id="@+id/nav_registroUsuario"
         android:name="com.touchizen.drawerwithbottomnavigation.ui.registroUsuario.RegistroFragment"
-        android:label="@string/menu_share"
+        android:label="@string/menu_registro"
         tools:layout="@layout/fragment_registro" />
 
     <fragment
         android:id="@+id/nav_referencias"
         android:name="com.touchizen.drawerwithbottomnavigation.ui.referencias.ReferenciasPersonalesFragment"
-        android:label="@string/title_referencias" />
+        android:label="@string/title_referencias"
+        tools:layout="@layout/fragment_referencias" />
     <fragment
         android:id="@+id/nav_registrocliente"
         android:name="com.touchizen.drawerwithbottomnavigation.ui.tools.RegistrodeClientesFragment"
@@ -58,25 +59,25 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/bottom_dashboard"
+        android:id="@+id/bottom_estadosfinancieros"
         android:name="com.touchizen.drawerwithbottomnavigation.ui.dashboard.EstadosFinnancierosFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_estadosfinancieros" />
 
     <fragment
-        android:id="@+id/bottom_notifications"
+        android:id="@+id/bottom_oportunidades"
         android:name="com.touchizen.drawerwithbottomnavigation.ui.oportunidades.OportunidadesFragment"
         android:label="@string/title_oportunidades"
         tools:layout="@layout/fragment_oportunidades" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/bottom_notifications"
         android:name="com.touchizen.drawerwithbottomnavigation.ui.notificaciones.NotificacionesFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notificaciones" />
 
     <fragment
-        android:id="@+id/navigation_ayuda"
+        android:id="@+id/bottom_ayuda"
         android:name="com.touchizen.drawerwithbottomnavigation.ui.ayuda.AyudaFragment"
         android:label="@string/title_ayuda"
         tools:layout="@layout/fragment_ayuda" />

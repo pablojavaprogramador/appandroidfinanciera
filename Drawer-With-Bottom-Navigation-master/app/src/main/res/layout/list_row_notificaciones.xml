@@ -19,15 +19,27 @@ android:paddingTop="8dp">
             android:src="@drawable/ic_menu_perfil" />
 
         <TextView
-            android:id="@+id/list_row_title_oportunidades"
+            android:id="@+id/list_row_fechaHora_oportunidades"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="56dp"
+            android:text="Fecha Hora"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="#040404"
+            tools:text="DD/MM/AAAA      " />
+
+        <TextView
+            android:id="@+id/list_row_title_oportunidades"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/list_row_fechaHora_oportunidades"
+            android:layout_below="@+id/list_row_fechaHora_oportunidades"
             android:text="Titulo"
             android:textStyle="bold|italic"
             android:textAppearance="?attr/textAppearanceListItem"
             android:textColor="#040404"
             tools:text="Disponible por tiempo Limitado" />
+
 
 
         <TextView

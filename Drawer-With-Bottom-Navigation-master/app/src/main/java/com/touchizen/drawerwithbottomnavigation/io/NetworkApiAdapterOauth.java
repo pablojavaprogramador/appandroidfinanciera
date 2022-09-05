@@ -20,7 +20,7 @@ public class NetworkApiAdapterOauth {
        httpClient.addInterceptor(logging);
 
 
-        final String token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTY1MDMxNDM4NX0.vPC_9-Jq2a4p-3CLPe2Nxt4JmwQDp1PBKvQq5VrAnZrwvtbk-OXLXUrSKmvRRjYq1N1Uym4M_r9anbVwDl4Riw";
+        final String token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTY2NDc3MTE2Mn0.aJqwCCYGbHZY3brblAdFzSbRQYCGRY_dkvSqv-xkV7wQhBYAGW7K8mSFqEp-x3uTlmD_TG0Pi0NEnObbUGyMnA";
 
 
   //      OkHttpClient httpClient = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
@@ -37,7 +37,7 @@ public class NetworkApiAdapterOauth {
 
 
 
-        String baseUrl = "http://192.168.100.6:8080/api/";
+        String baseUrl = "http://192.168.100.27:8080/api/";
 
         if (API_SERVICE == null) {
             Retrofit retrofit = new Retrofit.Builder()

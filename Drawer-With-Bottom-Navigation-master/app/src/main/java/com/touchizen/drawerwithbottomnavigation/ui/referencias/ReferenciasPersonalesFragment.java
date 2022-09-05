@@ -97,16 +97,16 @@ public class ReferenciasPersonalesFragment extends Fragment implements Callback<
         }else{
 
             Log.i("error", String.valueOf(response.message()));
-            ApiResponseError message = new Gson().fromJson(response.errorBody().charStream(), ApiResponseError.class);
-            List<FieldError> mensajes = message.getFieldErrors();
-            String mensaje=null;
-            String campo=null;
-            for(int i=0;i<mensajes.size();i++){
-                campo=mensajes.get(i).getField().toString();
-                mensaje=mensajes.get(i).getMessage().toString();
-            }
+           // ApiResponseError message = new Gson().fromJson(response.errorBody().charStream(), ApiResponseError.class);
+          //  List<FieldError> mensajes = message.getFieldErrors();
+         //   String mensaje=null;
+         //   String campo=null;
+         //   for(int i=0;i<mensajes.size();i++){
+        //        campo=mensajes.get(i).getField().toString();
+        //        mensaje=mensajes.get(i).getMessage().toString();
+       //     }
             // respuestaRegistro.setText(response.message());
-            respuestaReferencia.setText(campo+" "+mensaje);
+          //  respuestaReferencia.setText(campo+" "+mensaje);
             // Toast.makeText(null, "" + mensaje.toString(), Toast.LENGTH_SHORT).show();
             Toast.makeText(getActivity(),"Hola",Toast.LENGTH_SHORT).show();
         }

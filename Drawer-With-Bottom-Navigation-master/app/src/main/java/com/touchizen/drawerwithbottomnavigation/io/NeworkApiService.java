@@ -2,10 +2,13 @@ package com.touchizen.drawerwithbottomnavigation.io;
 
 import com.touchizen.drawerwithbottomnavigation.io.request.Domicilios;
 import com.touchizen.drawerwithbottomnavigation.io.request.Empleos;
+import com.touchizen.drawerwithbottomnavigation.io.request.LoginRequest;
+
 import com.touchizen.drawerwithbottomnavigation.io.responses.ClienteResponse;
 import com.touchizen.drawerwithbottomnavigation.io.request.RequestRegistro;
 import com.touchizen.drawerwithbottomnavigation.io.request.Clientes;
 import com.touchizen.drawerwithbottomnavigation.io.request.ReferenciaPersonal;
+import com.touchizen.drawerwithbottomnavigation.io.responses.LoginResponse;
 
 import java.util.ArrayList;
 
@@ -20,8 +23,11 @@ public interface NeworkApiService {
     Call<ArrayList<Clientes>>getClientes();
     @GET("clientes/{idCliente}")
     Call<ClienteResponse>getCliente(@Path("idCliente") String idCliente);
-    @POST("register")
+    @POST("usuarios")
     Call<Void> registroUsuarios(@Body RequestRegistro simpleResponse);
+    @POST("authenticate")
+    Call<LoginResponse>autentificacion(@Body LoginRequest simpleResponse);
+
     @POST("referencia-personales")
     Call<Void>registroReferencia(@Body ReferenciaPersonal referencia);
     @POST("clientes")

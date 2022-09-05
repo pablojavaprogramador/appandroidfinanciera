@@ -1,8 +1,11 @@
 package com.touchizen.drawerwithbottomnavigation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -17,6 +20,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.touchizen.drawerwithbottomnavigation.ui.login.LoginActivity;
 
 public class PrincipalActivity extends AppCompatActivity {
 
@@ -53,7 +57,8 @@ public class PrincipalActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 Snackbar.make(view, "Aun no hay notificaciones", Snackbar.LENGTH_LONG)
+
+                Snackbar.make(view, "Aun no hay notificaciones", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -125,6 +130,28 @@ public class PrincipalActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+// Handle item selection
+        switch (item.getItemId()) {
+            case R.id.SalirApp:
+                Intent intent = new Intent(PrincipalActivity.this, LoginActivity.class);
+                startActivity(intent);
+                System.exit(0);
+                return true;
+            case R.id.Conexion:
+                Toast.makeText(this, "Boton Conexion", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.Chatbot:
+                Toast.makeText(this, "Boton ChatBot", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override

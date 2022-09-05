@@ -19,6 +19,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.touchizen.drawerwithbottomnavigation.ui.login.LoginActivity;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -32,9 +33,9 @@ public class MainActivity extends Activity {
         TimerTask tarea=new TimerTask() {
             @Override
             public void run() {
-                Intent intent=new Intent(MainActivity.this,PrincipalActivity.class);
+                Intent intent=new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
-                finish();
+               finish();
             }
 
     };

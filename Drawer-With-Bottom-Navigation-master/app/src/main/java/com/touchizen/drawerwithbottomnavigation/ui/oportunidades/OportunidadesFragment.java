@@ -18,23 +18,34 @@ public class OportunidadesFragment extends Fragment {
     ListViewAdapterOportunidades adapter;
     String[] titulo = new String[]{
             "¿Necesitas dinero ? obten un adelanto de quincena",
+            "Pago de Servicios",
+            "Recargas de Celular",
+            "Tarjetas de Regalo",
             "Compra Bitcoins",
-            "Crea una Tanda",
-            "¿Comprar Acciones"
+            "Cupones",
+            "Mercado Digital",
     };
 
     String[] mensaje = new String[]{
-            "Disponible por tiempo Limitado",
-            "La moneda digital al alcance de un click",
-            "Abre tu propio credito Online",
-            "Comprar acciones de Mi bolsillo",
+            "disponible por tiempo Limitado",
+            "luz,telefono ,internet,gobierno,financieros.",
+            "recargas de celular telcel,movistar,unefon.",
+            "amazon,microsoft,xbox,play station y muchos mas.",
+            "la moneda digital al alcance de un click",
+            "cupones de Descuento ",
+            "vende y compra productos online "
+
     };
 
     int[] imagenes = {
             R.drawable.baseline_paid_24,
-            R.drawable.baseline_currency_bitcoin_24,
             R.drawable.baseline_location_city_24,
-            R.drawable.baseline_satellite_alt_20
+            R.drawable.baseline_phone_iphone_24,
+            R.drawable.baseline_card_giftcard_24,
+            R.drawable.baseline_currency_bitcoin_24,
+            R.drawable.baseline_description_24,
+            R.drawable.baseline_local_grocery_store_24
+
 
     };
 

@@ -31,13 +31,15 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="prompt_email">Escribe tu correo</string>
+    <string name="prompt_password">Escribe tu contraseña</string>
+    <string name="action_sign_in">Iniciar Sesion</string>
+    <string name="action_registro">Registro</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome!"</string>
+    <string name="welcome">"Bienvenido!"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="login_failed">"Login Incorrecto"</string>
+    <string name="title_activity_login">LoginActivity</string>
 
 </resources>

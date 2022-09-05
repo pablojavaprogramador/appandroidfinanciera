@@ -63,17 +63,6 @@ public class RegistroFragment extends Fragment implements Callback<Void>  {
                 enviodatos.setPassword(password.getText().toString());
                 RegistrarClientes(enviodatos);
 
-                // Crear fragmento de tu clase
-              //  Fragment fragment = new ReferenciasPersonalesFragment();
-// Obtener el administrador de fragmentos a través de la actividad
-             //   FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-// Definir una transacción
-             //    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-// Remplazar el contenido principal por el fragmento R.id.drawer_layout
-          //      fragmentTransaction.replace(R.id.drawer_layout, fragment);
-            //    fragmentTransaction.addToBackStack(null);
-// Cambiar
-           //     fragmentTransaction.commit();
             }
         });
          return root;
@@ -87,7 +76,6 @@ public class RegistroFragment extends Fragment implements Callback<Void>  {
 
         Call<Void> call = NetworkApiAdapter.getApiService().registroUsuarios(enviodatos);
         call.enqueue(this);
-
         Log.i("entro en Registrar Cliente","ewqe");
     }
 
@@ -113,24 +101,20 @@ public class RegistroFragment extends Fragment implements Callback<Void>  {
 
         }else{
 
-            Log.i("error", String.valueOf(response.message()));
-            ApiResponseError message = new Gson().fromJson(response.errorBody().charStream(), ApiResponseError.class);
-            List<FieldError> mensajes = message.getFieldErrors();
-            String mensaje=null;
-            String campo=null;
-            for(int i=0;i<mensajes.size();i++){
-                campo=mensajes.get(i).getField().toString();
-                mensaje=mensajes.get(i).getMessage().toString();
-            }
-           // respuestaRegistro.setText(response.message());
-            respuestaRegistro.setText(campo+" "+mensaje);
+            Log.i("erroralregistrar", String.valueOf(response.message()));
+         //   ApiResponseError message = new Gson().fromJson(response.errorBody().charStream(), ApiResponseError.class);
+           // List<FieldError> mensajes = message.getFieldErrors();
+
+           respuestaRegistro.setText(response.message());
+         //   respuestaRegistro.setText(mensajes.toString());
            // Toast.makeText(null, "" + mensaje.toString(), Toast.LENGTH_SHORT).show();
-            Toast.makeText(getActivity(),"Hola",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(),response.message().toString(),Toast.LENGTH_LONG).show();
         }
     }
 
     @Override
     public void onFailure(Call<Void> call, Throwable t) {
+        respuestaRegistro.setText(t.getLocalizedMessage().toString());
         System.out.println("Network Error :: " + t.getLocalizedMessage());
         Log.i("errordos", t.getLocalizedMessage());
     }

@@ -1,6 +1,8 @@
 package com.touchizen.drawerwithbottomnavigation.io;
 
 
+import android.util.Log;
+
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -17,37 +19,37 @@ public class NetworkApiAdapter {
     public static NeworkApiService getApiService() {
 
         // Creamos un interceptor y le indicamos el log level a usar
-        final HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+       final HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+      //  logging.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         // Asociamos el interceptor a las peticiones
-      //  OkHttpClient.Builder httpClient = new OkHttpClient.Builder();// sin el header bearer token
-      // httpClient.addInterceptor(logging);
+       OkHttpClient.Builder httpClient = new OkHttpClient.Builder();// sin el header bearer token
+       httpClient.addInterceptor(logging);
 
 
-        final String token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTY1MDMxNDM4NX0.vPC_9-Jq2a4p-3CLPe2Nxt4JmwQDp1PBKvQq5VrAnZrwvtbk-OXLXUrSKmvRRjYq1N1Uym4M_r9anbVwDl4Riw";
+        final String token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTY2NDc3MTE2Mn0.aJqwCCYGbHZY3brblAdFzSbRQYCGRY_dkvSqv-xkV7wQhBYAGW7K8mSFqEp-x3uTlmD_TG0Pi0NEnObbUGyMnA";
 
 
-       OkHttpClient httpClient = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
-            @Override
-            public Response intercept(Chain chain) throws IOException {
-        Request newRequest  = chain.request().newBuilder()
-                       .addHeader("Authorization", "Bearer " + token)
-                       .build();
+   //    OkHttpClient httpClient = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
+      //      @Override
+        //    public Response intercept(Chain chain) throws IOException {
+       // Request newRequest  = chain.request().newBuilder()
+      //                 .addHeader("Authorization", "Bearer " + token)
+     //                  .build();
 
-               return chain.proceed(newRequest);
-            }
-        }).build();
+    //           return chain.proceed(newRequest);
+    //        }
+    //    }).build();
 
 
-        String baseUrl = "http://192.168.100.6:8080/api/";
+        String baseUrl = "http://192.168.100.27:8080/apis/";
 
         if (API_SERVICE == null) {
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(baseUrl)
                     .addConverterFactory(GsonConverterFactory.create())
-                   .client(httpClient) // <-- usamos el log level
-                  //  .client(httpClient.build()) // <-- se utiliza cuando ya no se incorpora el token
+                   //.client(httpClient) // <-- usamos el log level
+                   .client(httpClient.build()) // <-- se utiliza cuando ya no se incorpora el token
 
                     .build();
             API_SERVICE = retrofit.create(NeworkApiService.class);

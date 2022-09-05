@@ -73,7 +73,7 @@ Button empleoBoton=root.findViewById(R.id.buttonRegistrar_Empleo);
         Call<Void> call = NetworkApiAdapter.getApiService().RegistroEmpleos(enviodatos);
         call.enqueue(this);
 
-        Log.i("entro en Registrar Cliente","ewqe");
+        Log.i("entro en Registrar Empleo","ewqe");
     }
 
     @Override

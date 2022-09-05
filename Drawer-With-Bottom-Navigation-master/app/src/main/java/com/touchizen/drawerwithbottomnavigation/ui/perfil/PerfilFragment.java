@@ -56,10 +56,10 @@ public class PerfilFragment extends Fragment implements Callback<ClienteResponse
 
     @Override
     public void onResponse(Call<ClienteResponse> call, Response<ClienteResponse> response) {
-if(response.isSuccessful()){
+    if(response.isSuccessful()){
     ClienteResponse respuestaServicioCliente=response.body();
     poblarPerfil(response.body());
-}
+    }
     }
 
     private void poblarPerfil(ClienteResponse body) {

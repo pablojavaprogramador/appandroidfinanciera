@@ -1,5 +1,6 @@
 package com.touchizen.drawerwithbottomnavigation.ui.oportunidades;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,12 +10,20 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.touchizen.drawerwithbottomnavigation.R;
+import com.touchizen.drawerwithbottomnavigation.ui.cupones.CuponesFragment;
+import com.touchizen.drawerwithbottomnavigation.ui.recargas.RecargasFragment;
 
 
 public class OportunidadesFragment extends Fragment {
+
+
+
     ListViewAdapterOportunidades adapter;
     String[] titulo = new String[]{
             "¿Necesitas dinero ? obten un adelanto de quincena",
@@ -59,9 +68,35 @@ public class OportunidadesFragment extends Fragment {
         lista.setAdapter(adapter);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onItemClick(AdapterView adapterView, View view, int i, long l) {
-                Toast.makeText(getActivity(), "presiono " + i, Toast.LENGTH_SHORT).show();
+                if(i==2){
+
+                  //  FragmentManager fragmentManager = null;
+                   // FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                   // RecargasFragment fragment = new RecargasFragment();
+                    //fragmentTransaction.add(R.layout.fragment_home, fragment);
+                    //fragmentTransaction.commit();
+                    // Crea el nuevo fragmento y la transacción.
+                    Fragment nuevoFragmento = new RecargasFragment();
+                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                    transaction.replace(R.id.nav_host_fragment, nuevoFragmento);
+                    transaction.addToBackStack(null);
+
+                    // Commit a la transacción
+                    transaction.commit();
+                    Toast.makeText(getActivity(), "Recargas" + i, Toast.LENGTH_SHORT).show();
+                }else if(i==5){
+                    Fragment nuevoFragmento = new CuponesFragment();
+                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                    transaction.replace(R.id.nav_host_fragment, nuevoFragmento);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                    Toast.makeText(getActivity(), "Cupones de Descuento" + i, Toast.LENGTH_SHORT).show();
+
+                }
+                //Toast.makeText(getActivity(), "presiono " + i, Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -41,7 +41,7 @@ public class PrincipalActivity extends AppCompatActivity {
         initToolbar();
         initFab();
         initNavigation();
-        //showBottomNavigation(false);
+       // showBottomNavigation(false);
     }
 
     private void initToolbar() {

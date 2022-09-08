@@ -29,7 +29,7 @@ import com.touchizen.drawerwithbottomnavigation.R;
 import com.touchizen.drawerwithbottomnavigation.ui.login.LoginViewModel;
 import com.touchizen.drawerwithbottomnavigation.ui.login.LoginViewModelFactory;
 import com.touchizen.drawerwithbottomnavigation.ui.registroUsuario.RegistroActivity;
-import com.touchizen.drawerwithbottomnavigation.ui.registroUsuario.RegistroFragment;
+
 //import com.touchizen.drawerwithbottomnavigation.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {

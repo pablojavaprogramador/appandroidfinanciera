@@ -5,62 +5,73 @@ import java.util.List;
 public class ApiResponseError {
 
 
-        private String type;
-        private String title;
-        private Integer status;
-        private String path;
-        private String message;
-        private List<FieldError> fieldErrors = null;
+        private Integer codigo;
+        private String fecha;
+        private String mensaje;
+        private String descripcion;
+        private String url;
+     //  private List<FieldError> fieldErrors = null;
 
-        public String getType() {
-            return type;
-        }
 
-        public void setType(String type) {
-            this.type = type;
-        }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
-        public Integer getStatus() {
-            return status;
-        }
-
-        public void setStatus(Integer status) {
-            this.status = status;
-        }
-
-        public String getPath() {
-            return path;
-        }
-
-        public void setPath(String path) {
-            this.path = path;
-        }
-
-        public String getMessage() {
-            return message;
-        }
-
-        public void setMessage(String message) {
-            this.message = message;
-        }
-
-        public List<FieldError> getFieldErrors() {
-            return fieldErrors;
-        }
-
-        public void setFieldErrors(List<FieldError> fieldErrors) {
-            this.fieldErrors = fieldErrors;
-        }
-
+    @Override
+    public String toString() {
+        return "ApiResponseError{" +
+                "codigo=" + codigo +
+                ", fecha='" + fecha + '\'' +
+                ", mensaje='" + mensaje + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", url='" + url + '\'' +
+                '}';
     }
+
+    public ApiResponseError(Integer codigo, String fecha, String mensaje, String descripcion, String url) {
+        this.codigo = codigo;
+        this.fecha = fecha;
+        this.mensaje = mensaje;
+        this.descripcion = descripcion;
+        this.url = url;
+    }
+
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+}
 
 
 

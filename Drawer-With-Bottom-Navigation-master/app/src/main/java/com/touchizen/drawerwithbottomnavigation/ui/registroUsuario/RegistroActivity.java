@@ -64,11 +64,11 @@ public class RegistroActivity extends Activity implements Callback<Void> {
                 enviodatos.setLogin(nombreCliente.getText().toString());
                 enviodatos.setEmail(correElectronico.getText().toString());
                 enviodatos.setPassword(password.getText().toString());
-                Set<Authority> autorizaciones = new HashSet<>();
+              // Set<Authority> autorizaciones = new HashSet<>();
                 Authority autorizacion =new Authority();
                 autorizacion.setName("name");
-                autorizaciones.add(autorizacion);
-                enviodatos.setAuthorities(autorizaciones);
+               // autorizaciones.add(autorizacion);
+                enviodatos.setAuthorities(null);
                 RegistrarClientes(enviodatos);
 
                 // Crear fragmento de tu clase
@@ -126,32 +126,56 @@ public class RegistroActivity extends Activity implements Callback<Void> {
 
 
             Log.i("traza:", String.valueOf(response.code()));
+            Toast.makeText(this,"Se ha Registrado EL Usuario" ,Toast.LENGTH_SHORT).show();
+
+              //  Thread.sleep(600);
+                Intent intent=new Intent(RegistroActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+
 
         }else if (response.code()==400){
 
-            Log.i("error", String.valueOf(response.errorBody().contentType().toString()));
+         //   Log.i("error", String.valueOf(response.errorBody().contentType().toString()));
 
              Log.i("error", String.valueOf(response.errorBody().source()));
             Log.i("error", String.valueOf(response.errorBody().source().buffer().toString()));
             Log.i("error", String.valueOf(response.errorBody().contentLength()));
-            Log.i("error", String.valueOf(response.raw().toString()));
+            Log.i("error", String.valueOf(response.raw().body()));
             Log.i("error", String.valueOf(response.code()));
             Log.i("error", String.valueOf(response.raw()));
             Log.i("error", String.valueOf(response.errorBody().charStream().toString()));
             ApiResponseError message = new Gson().fromJson(response.errorBody().charStream(), ApiResponseError.class);
 
-            List<FieldError> mensajes = message.getFieldErrors();
-            String mensaje=null;
-            String campo=null;
-            for(int i=0;i<mensajes.size();i++){
-                campo=mensajes.get(i).getField().toString();
-                mensaje=mensajes.get(i).getMessage().toString();
+            //     String messag = String.valueOf(response.raw().body().source());
+            if(message==null){
+                Toast.makeText(this,"Error: Desconocido" ,Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(RegistroActivity.this, RegistroActivity.class);
+                startActivity(intent);
+                finish();
+
             }
+               Log.i("errormensaje",message.getMensaje());
+                Log.i("errormensaje",message.getDescripcion());
+                Log.i("errormensaje",message.getUrl());
+                Toast.makeText(this,"Error: " +message.getDescripcion(),Toast.LENGTH_SHORT).show();
+
+            //List<FieldError> mensajes = message.getFieldErrors();
+         //   Integer code=message.getCodigo();
+          //  String fecha =message.getFecha();
+        //    String mensaje = message.getMensaje();
+           // String descripcion=message.getDescription();
+           // String mensaje=null;
+            //String campo=null;
+            //for(int i=0;i<mensajes.size();i++){
+            //    campo=mensajes.get(i).getField().toString();
+            //    mensaje=mensajes.get(i).getMessage().toString();
+           // }
             // respuestaRegistro.setText(response.message());
 //            respuestaRegistro.setText(campo+" "+mensaje);
 //            respuestaRegistro.setText(mensajes.get(0).toString());
 //             Toast.makeText(null, "" + mensaje.toString(), Toast.LENGTH_SHORT).show();
-            Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show();
+
         }
     }
 

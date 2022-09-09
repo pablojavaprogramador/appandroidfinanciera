@@ -16,8 +16,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.touchizen.drawerwithbottomnavigation.R;
+import com.touchizen.drawerwithbottomnavigation.ui.bitcoin.BitcoinFragment;
+import com.touchizen.drawerwithbottomnavigation.ui.credito.CreditoFragment;
 import com.touchizen.drawerwithbottomnavigation.ui.cupones.CuponesFragment;
+import com.touchizen.drawerwithbottomnavigation.ui.mercadito.MercaditoFragment;
+import com.touchizen.drawerwithbottomnavigation.ui.pagoservicios.PagoServiciosFragment;
 import com.touchizen.drawerwithbottomnavigation.ui.recargas.RecargasFragment;
+import com.touchizen.drawerwithbottomnavigation.ui.tarjetaderegalo.TarjetasRegaloFragment;
 
 
 public class OportunidadesFragment extends Fragment {
@@ -71,32 +76,80 @@ public class OportunidadesFragment extends Fragment {
             @SuppressLint("ResourceType")
             @Override
             public void onItemClick(AdapterView adapterView, View view, int i, long l) {
-                if(i==2){
 
-                  //  FragmentManager fragmentManager = null;
-                   // FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                   // RecargasFragment fragment = new RecargasFragment();
-                    //fragmentTransaction.add(R.layout.fragment_home, fragment);
-                    //fragmentTransaction.commit();
-                    // Crea el nuevo fragmento y la transacción.
-                    Fragment nuevoFragmento = new RecargasFragment();
-                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                    transaction.replace(R.id.nav_host_fragment, nuevoFragmento);
-                    transaction.addToBackStack(null);
 
-                    // Commit a la transacción
-                    transaction.commit();
-                    Toast.makeText(getActivity(), "Recargas" + i, Toast.LENGTH_SHORT).show();
-                }else if(i==5){
-                    Fragment nuevoFragmento = new CuponesFragment();
-                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                    transaction.replace(R.id.nav_host_fragment, nuevoFragmento);
-                    transaction.addToBackStack(null);
-                    transaction.commit();
-                    Toast.makeText(getActivity(), "Cupones de Descuento" + i, Toast.LENGTH_SHORT).show();
 
+                switch(i){
+                    case 0:
+
+                        Fragment Credito = new CreditoFragment();
+                        FragmentTransaction creditoRegalo = getParentFragmentManager().beginTransaction();
+                        creditoRegalo.replace(R.id.nav_host_fragment, Credito);
+                        creditoRegalo.addToBackStack("regalo");
+                        creditoRegalo.commit();
+                        Toast.makeText(getActivity(), "Credito Regalo" , Toast.LENGTH_SHORT).show();
+
+                        break;
+
+                    case 1:
+                        Fragment PagoServiciosFragment = new PagoServiciosFragment();
+                        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                        transaction.replace(R.id.nav_host_fragment, PagoServiciosFragment);
+                        transaction.addToBackStack("pago");
+                        transaction.commit();
+                        Toast.makeText(getActivity(), "Pagos de Servicios" + i, Toast.LENGTH_SHORT).show();
+
+                        break;
+
+                    case 2:
+                        Fragment RecargasFragment = new RecargasFragment();
+                        FragmentTransaction transicion = getParentFragmentManager().beginTransaction();
+                        transicion.replace(R.id.nav_host_fragment, RecargasFragment);
+                        transicion.addToBackStack("recarga");
+                        // Commit a la transacción
+                        transicion.commit();
+                        Toast.makeText(getActivity(), "Recargas" + i, Toast.LENGTH_SHORT).show();
+
+                        break;
+
+                    case 3:
+                        Fragment TarjetasdeRegalo = new TarjetasRegaloFragment();
+                        FragmentTransaction transaccionregalo = getParentFragmentManager().beginTransaction();
+                        transaccionregalo.replace(R.id.nav_host_fragment, TarjetasdeRegalo);
+                        transaccionregalo.addToBackStack("regalo");
+                        transaccionregalo.commit();
+                        Toast.makeText(getActivity(), "Tarjetas de Regalo" , Toast.LENGTH_SHORT).show();
+
+                        break;
+                    case 4:
+                        Fragment Bitcoin = new BitcoinFragment();
+                        FragmentTransaction bitcoinFragment = getParentFragmentManager().beginTransaction();
+                        bitcoinFragment.replace(R.id.nav_host_fragment, Bitcoin);
+                        bitcoinFragment.addToBackStack("regalo");
+                        bitcoinFragment.commit();
+                        Toast.makeText(getActivity(), "Credito Regalo" , Toast.LENGTH_SHORT).show();
+
+                        break;
+                    case 5:
+                        Fragment nuevoFragmento = new CuponesFragment();
+                        FragmentTransaction prueba = getParentFragmentManager().beginTransaction();
+                        prueba.replace(R.id.nav_host_fragment, nuevoFragmento);
+                        prueba.addToBackStack("cupon");
+                        prueba.commit();
+                        Toast.makeText(getActivity(), "Cupones de Descuento" + i, Toast.LENGTH_SHORT).show();
+
+                        break;
+                    case 6:
+                        Fragment mercaditoFragmento = new MercaditoFragment();
+                        FragmentTransaction mercadito = getParentFragmentManager().beginTransaction();
+                        mercadito.replace(R.id.nav_host_fragment, mercaditoFragmento);
+                        mercadito.addToBackStack("cupon");
+                        mercadito.commit();
+                        Toast.makeText(getActivity(), "Cupones de Descuento" + i, Toast.LENGTH_SHORT).show();
+
+                        break;
                 }
-                //Toast.makeText(getActivity(), "presiono " + i, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "presiono " + i +l, Toast.LENGTH_SHORT).show();
             }
         });
 

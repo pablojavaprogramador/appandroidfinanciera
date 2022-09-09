@@ -1,4 +1,4 @@
-package com.touchizen.drawerwithbottomnavigation.ui.cupones;
+package com.touchizen.drawerwithbottomnavigation.ui.tarjetaderegalo;
 
 
 import android.annotation.SuppressLint;
@@ -19,27 +19,30 @@ import androidx.fragment.app.FragmentTransaction;
 import com.touchizen.drawerwithbottomnavigation.R;
 import com.touchizen.drawerwithbottomnavigation.ui.recargas.ListViewAdapterRecargas;
 
-public class CuponesFragment extends Fragment  {
+public class TarjetasRegaloFragment extends Fragment  {
 
-    ListViewAdapterCupones adapter;
+    ListViewAdapterTarjetasRegalo adapter;
     String[] titulo = new String[]{
-            "Burger King",
-            "Pizza Hut",
-            "Bodega Ahorrera"
+            "Telcel",
+            "Movistar",
+            "Unefon",
+            "AT&T"
     };
 
     String[] mensaje = new String[]{
-            "10 %  de Descuenta en 2 x 1",
-            "Llevate una pizza familiar con 30% Descuento",
-            "10% en Electrodosmesticos"
+            "Recarga de Saldo Celular",
+            "Recarga de Saldo Celular",
+            "Recarga de Saldo Celular",
+            "Recarga de Saldo Celular"
+
 
     };
 
     int[] imagenes = {
-            R.drawable.baseline_description_24,
-            R.drawable.baseline_description_24,
-            R.drawable.baseline_description_24,
-            R.drawable.baseline_description_24
+            R.drawable.baseline_phone_iphone_24,
+            R.drawable.baseline_phone_iphone_24,
+            R.drawable.baseline_phone_iphone_24,
+            R.drawable.baseline_phone_iphone_24
 
 
     };
@@ -59,7 +62,7 @@ public class CuponesFragment extends Fragment  {
 
 
         final ListView lista = (ListView) root.findViewById(R.id.listViewRecarga1);
-        adapter = new ListViewAdapterCupones(this, titulo, mensaje,imagenes,inflater);
+        adapter = new ListViewAdapterTarjetasRegalo(this, titulo, mensaje,imagenes,inflater);
         lista.setAdapter(adapter);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -67,8 +70,7 @@ public class CuponesFragment extends Fragment  {
             @Override
             public void onItemClick(AdapterView adapterView, View view, int i, long l) {
 
-
-                Toast.makeText(getActivity(), "El Cupon estara Disponible Por Tiempo Limitado " + i, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "presiono " + i, Toast.LENGTH_SHORT).show();
             }
         });
 

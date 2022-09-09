@@ -1,4 +1,4 @@
-package com.touchizen.drawerwithbottomnavigation.ui.cupones;
+package com.touchizen.drawerwithbottomnavigation.ui.credito;
 
 
 import android.annotation.SuppressLint;
@@ -14,12 +14,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.touchizen.drawerwithbottomnavigation.R;
-import com.touchizen.drawerwithbottomnavigation.ui.recargas.ListViewAdapterRecargas;
+import com.touchizen.drawerwithbottomnavigation.ui.cupones.ListViewAdapterCupones;
 
-public class CuponesFragment extends Fragment  {
+public class CreditoFragment extends Fragment  {
 
     ListViewAdapterCupones adapter;
     String[] titulo = new String[]{
@@ -52,33 +51,14 @@ public class CuponesFragment extends Fragment  {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_recargas, container, false);
+        View root = inflater.inflate(R.layout.fragment_credito, container, false);
       //  recargaLabel= root.findViewById(R.id.id_recarga_Label);
-        companiaLabel=root.findViewById(R.id.id_compania_Label);
+     //   companiaLabel=root.findViewById(R.id.id_compania_Label);
 
 
 
-        final ListView lista = (ListView) root.findViewById(R.id.listViewRecarga1);
-        adapter = new ListViewAdapterCupones(this, titulo, mensaje,imagenes,inflater);
-        lista.setAdapter(adapter);
+    //    final ListView lista = (ListView) root.findViewById(R.id.listViewRecarga1);
 
-        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @SuppressLint("ResourceType")
-            @Override
-            public void onItemClick(AdapterView adapterView, View view, int i, long l) {
-
-
-                Toast.makeText(getActivity(), "El Cupon estara Disponible Por Tiempo Limitado " + i, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        lista.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView adapterView, View view, int i, long l) {
-                Toast.makeText(getActivity(), "presiono LARGO " + i, Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        });
 
 
          return root;

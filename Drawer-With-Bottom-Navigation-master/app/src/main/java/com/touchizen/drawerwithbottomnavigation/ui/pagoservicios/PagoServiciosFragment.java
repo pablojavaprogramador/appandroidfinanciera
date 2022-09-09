@@ -1,5 +1,4 @@
-package com.touchizen.drawerwithbottomnavigation.ui.cupones;
-
+package com.touchizen.drawerwithbottomnavigation.ui.pagoservicios;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -14,37 +13,41 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.touchizen.drawerwithbottomnavigation.R;
-import com.touchizen.drawerwithbottomnavigation.ui.recargas.ListViewAdapterRecargas;
 
-public class CuponesFragment extends Fragment  {
 
-    ListViewAdapterCupones adapter;
+
+public class PagoServiciosFragment extends Fragment {
+
+    ListViewAdapterPagoServicios adapter;
     String[] titulo = new String[]{
-            "Burger King",
-            "Pizza Hut",
-            "Bodega Ahorrera"
+            "Plan Celular",
+            "Luz",
+            "Agua",
+            "Gas",
+            "Financiera"
+
     };
 
     String[] mensaje = new String[]{
-            "10 %  de Descuenta en 2 x 1",
-            "Llevate una pizza familiar con 30% Descuento",
-            "10% en Electrodosmesticos"
+            "Paga Tu Plan de Celular Aqui",
+            "Paga tu Recibo de Luz Aqui",
+            "Paga tu Agua Aqui",
+            "Paga tu Gas Aqui",
+            "Paga tu Credito Aqui"
 
     };
 
     int[] imagenes = {
-            R.drawable.baseline_description_24,
-            R.drawable.baseline_description_24,
-            R.drawable.baseline_description_24,
-            R.drawable.baseline_description_24
+            R.drawable.baseline_paid_24,
+            R.drawable.baseline_paid_24,
+            R.drawable.baseline_paid_24,
+            R.drawable.baseline_paid_24,
+            R.drawable.baseline_paid_24
 
 
     };
-
-
     private TextView recargaLabel=null;
     private TextView companiaLabel=null;
     private Button bottonRecargas=null;
@@ -53,13 +56,14 @@ public class CuponesFragment extends Fragment  {
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_recargas, container, false);
-      //  recargaLabel= root.findViewById(R.id.id_recarga_Label);
+        //  recargaLabel= root.findViewById(R.id.id_recarga_Label);
         companiaLabel=root.findViewById(R.id.id_compania_Label);
 
 
 
         final ListView lista = (ListView) root.findViewById(R.id.listViewRecarga1);
-        adapter = new ListViewAdapterCupones(this, titulo, mensaje,imagenes,inflater);
+
+        adapter = new ListViewAdapterPagoServicios(this, titulo, mensaje,imagenes,inflater);
         lista.setAdapter(adapter);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -67,8 +71,9 @@ public class CuponesFragment extends Fragment  {
             @Override
             public void onItemClick(AdapterView adapterView, View view, int i, long l) {
 
+                    Toast.makeText(getActivity(), "" + i, Toast.LENGTH_SHORT).show();
 
-                Toast.makeText(getActivity(), "El Cupon estara Disponible Por Tiempo Limitado " + i, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "presiono " + i, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -80,10 +85,6 @@ public class CuponesFragment extends Fragment  {
             }
         });
 
-
-         return root;
+        return root;
     }
-
-
-
 }

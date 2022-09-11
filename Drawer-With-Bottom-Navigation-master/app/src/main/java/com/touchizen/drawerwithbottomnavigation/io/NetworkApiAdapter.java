@@ -42,8 +42,8 @@ public class NetworkApiAdapter {
     //    }).build();
 
 
-       // String baseUrl = "http://superapp-env.eba-cpmqzave.us-east-1.elasticbeanstalk.com/apis/";
-        String baseUrl = "http://192.168.1.74:5000/apis/";
+        String baseUrl = "http://superapp-env.eba-cpmqzave.us-east-1.elasticbeanstalk.com/apis/";
+      //String baseUrl = "http://192.168.1.74:5000/apis/";
 
         if (API_SERVICE == null) {
             Retrofit retrofit = new Retrofit.Builder()

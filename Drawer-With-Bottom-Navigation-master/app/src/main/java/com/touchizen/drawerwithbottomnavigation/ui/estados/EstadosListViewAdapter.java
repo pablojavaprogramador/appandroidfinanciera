@@ -1,4 +1,4 @@
-package com.touchizen.drawerwithbottomnavigation.ui.dashboard;
+package com.touchizen.drawerwithbottomnavigation.ui.estados;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,14 +9,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.touchizen.drawerwithbottomnavigation.R;
-public class ListViewAdapter extends BaseAdapter {
+import com.touchizen.drawerwithbottomnavigation.ui.estados.EstadosFinnancierosFragment;
+
+public class EstadosListViewAdapter extends BaseAdapter {
     // Declare Variables
     EstadosFinnancierosFragment context;
     String[] titulos;
     int[] imagenes;
     LayoutInflater inflater;
 
-    public ListViewAdapter(EstadosFinnancierosFragment context, String[] titulos, int[] imagenes, LayoutInflater inflater) {
+    public EstadosListViewAdapter(EstadosFinnancierosFragment context, String[] titulos, int[] imagenes, LayoutInflater inflater) {
         this.context = context;
         this.titulos = titulos;
         this.imagenes = imagenes;

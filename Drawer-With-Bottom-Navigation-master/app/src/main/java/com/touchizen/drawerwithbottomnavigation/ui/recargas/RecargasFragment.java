@@ -20,6 +20,13 @@ import androidx.fragment.app.FragmentTransaction;
 import com.touchizen.drawerwithbottomnavigation.R;
 import com.touchizen.drawerwithbottomnavigation.io.NetworkApiAdapter;
 import com.touchizen.drawerwithbottomnavigation.io.request.ReferenciaPersonal;
+import com.touchizen.drawerwithbottomnavigation.ui.bitcoin.BitcoinFragment;
+import com.touchizen.drawerwithbottomnavigation.ui.credito.CreditoFragment;
+import com.touchizen.drawerwithbottomnavigation.ui.cupones.CuponesFragment;
+import com.touchizen.drawerwithbottomnavigation.ui.mercadito.MercaditoFragment;
+import com.touchizen.drawerwithbottomnavigation.ui.pago.PagoFragment;
+import com.touchizen.drawerwithbottomnavigation.ui.pagoservicios.PagoServiciosFragment;
+import com.touchizen.drawerwithbottomnavigation.ui.tarjetaderegalo.TarjetasRegaloFragment;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -75,24 +82,15 @@ public class RecargasFragment extends Fragment  {
             @SuppressLint("ResourceType")
             @Override
             public void onItemClick(AdapterView adapterView, View view, int i, long l) {
-                if(i==2){
 
-                    //  FragmentManager fragmentManager = null;
-                    // FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    // RecargasFragment fragment = new RecargasFragment();
-                    //fragmentTransaction.add(R.layout.fragment_home, fragment);
-                    //fragmentTransaction.commit();
-                    // Crea el nuevo fragmento y la transacción.
-                    Fragment nuevoFragmento = new RecargasFragment();
-                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                    transaction.replace(R.id.nav_host_fragment, nuevoFragmento);
-                    transaction.addToBackStack(null);
+                        Fragment pagos = new PagoFragment();
+                        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                        transaction.replace(R.id.nav_host_fragment, pagos);
+                        transaction.addToBackStack("pago");
+                        transaction.commit();
+                        Toast.makeText(getActivity(), "Realiza tu Recarga" + i, Toast.LENGTH_SHORT).show();
 
-                    // Commit a la transacción
-                    transaction.commit();
-                    Toast.makeText(getActivity(), "Recargas" + i, Toast.LENGTH_SHORT).show();
-                }
-                //Toast.makeText(getActivity(), "presiono " + i, Toast.LENGTH_SHORT).show();
+
             }
         });
 

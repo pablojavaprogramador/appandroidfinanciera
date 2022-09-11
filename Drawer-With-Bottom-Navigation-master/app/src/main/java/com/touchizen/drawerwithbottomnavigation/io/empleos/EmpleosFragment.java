@@ -1,4 +1,4 @@
-package com.touchizen.drawerwithbottomnavigation.ui.tools;
+package com.touchizen.drawerwithbottomnavigation.io.empleos;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.touchizen.drawerwithbottomnavigation.R;
 import com.touchizen.drawerwithbottomnavigation.io.NetworkApiAdapter;
 import com.touchizen.drawerwithbottomnavigation.io.request.Empleos;
+import com.touchizen.drawerwithbottomnavigation.ui.tools.ToolsViewModel;
 
 import retrofit2.Call;
 import retrofit2.Callback;

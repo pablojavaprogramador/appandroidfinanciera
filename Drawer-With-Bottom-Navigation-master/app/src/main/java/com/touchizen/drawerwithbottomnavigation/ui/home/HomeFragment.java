@@ -18,24 +18,29 @@ import androidx.lifecycle.ViewModelProviders;
 import com.touchizen.drawerwithbottomnavigation.R;
 import com.touchizen.drawerwithbottomnavigation.io.NetworkApiAdapter;
 import com.touchizen.drawerwithbottomnavigation.io.responses.ClienteResponse;
+import com.touchizen.drawerwithbottomnavigation.io.responses.UsuariosReponse;
 import com.touchizen.drawerwithbottomnavigation.ui.oportunidades.ListViewAdapterOportunidades;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class HomeFragment extends Fragment implements Callback<ClienteResponse> {
+public class HomeFragment extends Fragment implements Callback<UsuariosReponse> {
     ListViewAdapterHome adapter;
     String[] titulo = new String[]{
-            "Adelanto de quincena"
+            "Adelanto de quincena",
+            "Bitcoin  Comprados"
     };
 
     String[] mensaje = new String[]{
-            "Actualmente estas al Corriente"
+            "Actualmente estas al Corriente",
+            "Actualmente tienes 1 Bitcoin"
     };
 
     int[] imagenes = {
+            R.drawable.baseline_paid_24,
             R.drawable.baseline_paid_24
+
 
     };
 
@@ -43,6 +48,8 @@ public class HomeFragment extends Fragment implements Callback<ClienteResponse> 
     TextView textcredito=null;
     TextView txtsaldo=null;
     TextView textCliente=null;
+    TextView textEmail=null;
+    TextView textActivate=null;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -52,6 +59,8 @@ public class HomeFragment extends Fragment implements Callback<ClienteResponse> 
          textCliente=root.findViewById(R.id.text_nombre);
          textcredito=root.findViewById(R.id.text_credito_disponible);
          txtsaldo=root.findViewById(R.id.text_Saldo);
+        textEmail=root.findViewById(R.id.text_Email);
+        textActivate=root.findViewById(R.id.text_Activate);
 
         final ListView lista = (ListView) root.findViewById(R.id.listViewHome);
         adapter = new ListViewAdapterHome(this, titulo, mensaje,imagenes,inflater);
@@ -75,31 +84,38 @@ public class HomeFragment extends Fragment implements Callback<ClienteResponse> 
     }
 
     private void obtenerDatosClientes() {
-        String idCliente = "9";
-        Call<ClienteResponse> call= NetworkApiAdapter.getApiService().getCliente(idCliente);
+        String idCliente = "1";
+        Call<UsuariosReponse> call= NetworkApiAdapter.getApiService().getUsuarios(idCliente);
         call.enqueue(this);
     }
 
 
     @Override
-    public void onResponse(Call<ClienteResponse> call, Response<ClienteResponse> response) {
+    public void onResponse(Call<UsuariosReponse> call, Response<UsuariosReponse> response) {
         if(response.isSuccessful()){
-            ClienteResponse respuestaServicioCliente=response.body();
+            UsuariosReponse respuestaServicioCliente=response.body();
             poblarPerfil(response.body());
         }
     }
 
-    private void poblarPerfil(ClienteResponse body) {
-        textCliente.setText("Bienvenida a mi Bolsillo: " +body.getNombre());
+    private void poblarPerfil(UsuariosReponse body) {
+        textCliente.setText("Bienvenida a mi Bolsillo: " +body.getFirstName() +" " +body.getLastName());
         textcredito.setText("Credito con el que cuentas $10000");
-        txtsaldo.setText("Productos que Actualmente tienes");
+        textEmail.setText("Correo Registrado: "+body.getEmail());
+        if(body.isActivated()==true){
+        textActivate.setText("Estatus: Activo");
+        }else{
+            textActivate.setText("Estatus: Inactivo");
+        }
+        txtsaldo.setText("Productos con el que se cuenta ");
+
 //        textSaldoView.setText("30000");
 //        textCreditoDisponibleView.setText("90000");
     }
 
 
     @Override
-    public void onFailure(Call<ClienteResponse> call, Throwable t) {
+    public void onFailure(Call<UsuariosReponse> call, Throwable t) {
 
     }
 }

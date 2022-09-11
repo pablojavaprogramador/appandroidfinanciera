@@ -25,13 +25,13 @@
 
     <fragment
         android:id="@+id/nav_empleos"
-        android:name="com.touchizen.drawerwithbottomnavigation.ui.tools.EmpleosFragment"
+        android:name="com.touchizen.drawerwithbottomnavigation.io.empleos.EmpleosFragment"
         android:label="@string/menu_empleos"
         tools:layout="@layout/fragment_empleos" />
 
     <fragment
         android:id="@+id/nav_registroUsuario"
-        android:name="com.touchizen.drawerwithbottomnavigation.ui.registroUsuario.RegistroFragment"
+        android:name="com.touchizen.drawerwithbottomnavigation.ui.tools.RegistrodeClientesFragment"
         android:label="@string/menu_registro"
         tools:layout="@layout/fragment_registro" />
 
@@ -60,7 +60,7 @@
 
     <fragment
         android:id="@+id/bottom_estadosfinancieros"
-        android:name="com.touchizen.drawerwithbottomnavigation.ui.dashboard.EstadosFinnancierosFragment"
+        android:name="com.touchizen.drawerwithbottomnavigation.ui.estados.EstadosFinnancierosFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_estadosfinancieros" />
 

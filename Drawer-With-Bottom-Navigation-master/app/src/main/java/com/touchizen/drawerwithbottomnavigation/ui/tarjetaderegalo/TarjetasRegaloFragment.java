@@ -17,32 +17,34 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.touchizen.drawerwithbottomnavigation.R;
+import com.touchizen.drawerwithbottomnavigation.ui.pago.PagoTarjetasdeRegaloFragment;
 import com.touchizen.drawerwithbottomnavigation.ui.recargas.ListViewAdapterRecargas;
+import com.touchizen.drawerwithbottomnavigation.ui.recargas.RecargasFragment;
 
 public class TarjetasRegaloFragment extends Fragment  {
 
     ListViewAdapterTarjetasRegalo adapter;
     String[] titulo = new String[]{
-            "Telcel",
-            "Movistar",
-            "Unefon",
-            "AT&T"
+            "Amazon",
+            "Cinepolis",
+            "Microsoft",
+            "Nintendo"
     };
 
     String[] mensaje = new String[]{
-            "Recarga de Saldo Celular",
-            "Recarga de Saldo Celular",
-            "Recarga de Saldo Celular",
-            "Recarga de Saldo Celular"
+            "Compra tu Tarjeta Amazon",
+            "Compra tu Tarjeta  Cinepolis",
+            "Compra tu Tarjeta Microsoft",
+            "Compra tu Tarjeta Nintendo"
 
 
     };
 
     int[] imagenes = {
-            R.drawable.baseline_phone_iphone_24,
-            R.drawable.baseline_phone_iphone_24,
-            R.drawable.baseline_phone_iphone_24,
-            R.drawable.baseline_phone_iphone_24
+            R.drawable.baseline_card_giftcard_24,
+            R.drawable.baseline_card_giftcard_24,
+            R.drawable.baseline_card_giftcard_24,
+            R.drawable.baseline_card_giftcard_24,
 
 
     };
@@ -69,8 +71,15 @@ public class TarjetasRegaloFragment extends Fragment  {
             @SuppressLint("ResourceType")
             @Override
             public void onItemClick(AdapterView adapterView, View view, int i, long l) {
+                Fragment tarjetasRegalo = new PagoTarjetasdeRegaloFragment();
+                FragmentTransaction regalo = getParentFragmentManager().beginTransaction();
+                regalo.replace(R.id.nav_host_fragment, tarjetasRegalo);
+                regalo.addToBackStack("tarjetasderegalo");
+                // Commit a la transacción
+                regalo.commit();
+                Toast.makeText(getActivity(), "Tarjetas de regalo" + i, Toast.LENGTH_SHORT).show();
 
-                Toast.makeText(getActivity(), "presiono " + i, Toast.LENGTH_SHORT).show();
+
             }
         });
 

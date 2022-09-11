@@ -17,12 +17,13 @@ import com.touchizen.drawerwithbottomnavigation.R;
 import com.touchizen.drawerwithbottomnavigation.io.NetworkApiAdapter;
 import com.touchizen.drawerwithbottomnavigation.io.request.Clientes;
 import com.touchizen.drawerwithbottomnavigation.io.request.Domicilios;
+import com.touchizen.drawerwithbottomnavigation.io.responses.RespuestaOk;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DomicilioFragment extends Fragment implements Callback<Void> {
+public class DomicilioFragment extends Fragment implements Callback<RespuestaOk> {
     private TextView andador_Domicilio =null;
     private TextView calle_Domicilio=null;
     private TextView codigoPostal_Domicilio=null;
@@ -74,21 +75,22 @@ public class DomicilioFragment extends Fragment implements Callback<Void> {
     @SuppressLint("LongLogTag")
     private void RegistrarDomicilios(Domicilios enviodatos) {
 
-        Call<Void> call = NetworkApiAdapter.getApiService().RegistroDomicilios(enviodatos);
+        Call<RespuestaOk> call = NetworkApiAdapter.getApiService().RegistroDomicilios(enviodatos);
         call.enqueue(this);
 
         Log.i("entro en Registrar Domicilio","ewqe");
     }
 
     @Override
-    public void onResponse(Call<Void> call, Response<Void> response) {
+    public void onResponse(Call<RespuestaOk> call, Response<RespuestaOk> response) {
         if(response.code()==201){
-            Void respuestaServicioReferencia=response.body();
+            RespuestaOk respuestaServicioReferencia=response.body();
             // Toast.makeText(getActivity(),"Ingresa el Codigo que enviamos a:" +"tecnoplacita@gmail.com",Toast.LENGTH_SHORT).show();
             Toast.makeText(getActivity(),"Se Registro/Actualizo El Domicilio",Toast.LENGTH_SHORT).show();
             respuestaDomicilio.setHighlightColor(5);
             respuestaDomicilio.setText("Se Registro/Actualizo El Domicilio");
             Log.i("traza:", String.valueOf(response.code()));
+            Log.i("traza:", String.valueOf(respuestaServicioReferencia.getMensaje()));
 
         }else{
             Log.i("error", String.valueOf(response.message()));
@@ -97,7 +99,7 @@ public class DomicilioFragment extends Fragment implements Callback<Void> {
     }
 
     @Override
-    public void onFailure(Call<Void> call, Throwable t) {
+    public void onFailure(Call<RespuestaOk> call, Throwable t) {
         System.out.println("Network Error :: " + t.getLocalizedMessage());
         Log.i("errordos", t.getLocalizedMessage());
     }

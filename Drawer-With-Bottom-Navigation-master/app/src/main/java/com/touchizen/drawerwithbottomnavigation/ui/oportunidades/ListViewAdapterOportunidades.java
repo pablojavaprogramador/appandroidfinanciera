@@ -7,7 +7,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.touchizen.drawerwithbottomnavigation.R;
-import com.touchizen.drawerwithbottomnavigation.ui.dashboard.EstadosFinnancierosFragment;
 
 public class ListViewAdapterOportunidades extends BaseAdapter {
     // Declare Variables

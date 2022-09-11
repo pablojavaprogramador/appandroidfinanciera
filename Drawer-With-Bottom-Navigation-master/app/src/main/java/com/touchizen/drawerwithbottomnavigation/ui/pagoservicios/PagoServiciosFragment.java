@@ -13,9 +13,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.touchizen.drawerwithbottomnavigation.R;
-
+import com.touchizen.drawerwithbottomnavigation.ui.pago.FormulariopagodeserviciosFragment;
+import com.touchizen.drawerwithbottomnavigation.ui.pago.PagoTarjetasdeRegaloFragment;
 
 
 public class PagoServiciosFragment extends Fragment {
@@ -70,10 +72,13 @@ public class PagoServiciosFragment extends Fragment {
             @SuppressLint("ResourceType")
             @Override
             public void onItemClick(AdapterView adapterView, View view, int i, long l) {
-
-                    Toast.makeText(getActivity(), "" + i, Toast.LENGTH_SHORT).show();
-
-                //Toast.makeText(getActivity(), "presiono " + i, Toast.LENGTH_SHORT).show();
+                Fragment pagodeServicios = new FormulariopagodeserviciosFragment();
+                FragmentTransaction pagoServicios = getParentFragmentManager().beginTransaction();
+                pagoServicios.replace(R.id.nav_host_fragment, pagodeServicios);
+                pagoServicios.addToBackStack("tarjetasderegalo");
+                // Commit a la transacción
+                pagoServicios.commit();
+                Toast.makeText(getActivity(), "Tarjetas de regalo" + i, Toast.LENGTH_SHORT).show();
             }
         });
 

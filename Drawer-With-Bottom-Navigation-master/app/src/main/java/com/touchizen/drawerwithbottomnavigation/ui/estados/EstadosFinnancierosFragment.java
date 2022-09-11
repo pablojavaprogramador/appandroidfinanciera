@@ -1,4 +1,4 @@
-package com.touchizen.drawerwithbottomnavigation.ui.dashboard;
+package com.touchizen.drawerwithbottomnavigation.ui.estados;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,7 +15,7 @@ import com.touchizen.drawerwithbottomnavigation.R;
 
 public class EstadosFinnancierosFragment extends Fragment {
 
-    ListViewAdapter adapter;
+    EstadosListViewAdapter adapter;
 
     String[] titulo = new String[]{
             "Enero",
@@ -46,20 +46,20 @@ public class EstadosFinnancierosFragment extends Fragment {
 
           View root = inflater.inflate(R.layout.fragment_estadosfinancieros, container, false);
         final ListView lista = (ListView) root.findViewById(R.id.listView1);
-        adapter = new ListViewAdapter(this, titulo, imagenes,inflater);
+        adapter = new EstadosListViewAdapter(this, titulo, imagenes,inflater);
         lista.setAdapter(adapter);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView adapterView, View view, int i, long l) {
-                Toast.makeText(getActivity(), "presiono " + i, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Aun no hay Registros " , Toast.LENGTH_SHORT).show();
             }
         });
 
         lista.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView adapterView, View view, int i, long l) {
-                Toast.makeText(getActivity(), "presiono LARGO " + i, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Aun no hay Registros " , Toast.LENGTH_SHORT).show();
                 return false;
             }
         });

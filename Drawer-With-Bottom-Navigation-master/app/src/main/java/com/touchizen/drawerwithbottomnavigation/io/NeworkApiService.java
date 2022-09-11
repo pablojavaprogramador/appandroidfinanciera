@@ -9,6 +9,8 @@ import com.touchizen.drawerwithbottomnavigation.io.request.RequestRegistro;
 import com.touchizen.drawerwithbottomnavigation.io.request.Clientes;
 import com.touchizen.drawerwithbottomnavigation.io.request.ReferenciaPersonal;
 import com.touchizen.drawerwithbottomnavigation.io.responses.LoginResponse;
+import com.touchizen.drawerwithbottomnavigation.io.responses.RespuestaOk;
+import com.touchizen.drawerwithbottomnavigation.io.responses.UsuariosReponse;
 
 import java.util.ArrayList;
 
@@ -25,6 +27,10 @@ public interface NeworkApiService {
     Call<ClienteResponse>getCliente(@Path("idCliente") String idCliente);
     @POST("usuarios")
     Call<Void> registroUsuarios(@Body RequestRegistro simpleResponse);
+
+    @GET("usuarios/{idUsuarios}")
+    Call<UsuariosReponse>getUsuarios(@Path("idUsuarios") String usuarios);
+
     @POST("authenticate")
     Call<LoginResponse>autentificacion(@Body LoginRequest simpleResponse);
 
@@ -35,5 +41,5 @@ public interface NeworkApiService {
     @POST("empleos")
     Call<Void>RegistroEmpleos(@Body Empleos empleos );
     @POST("domicilios")
-    Call<Void>RegistroDomicilios(@Body Domicilios domicilios );
+    Call<RespuestaOk>RegistroDomicilios(@Body Domicilios domicilios );
 }

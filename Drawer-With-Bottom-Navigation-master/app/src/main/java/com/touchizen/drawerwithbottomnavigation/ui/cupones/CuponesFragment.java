@@ -29,9 +29,9 @@ public class CuponesFragment extends Fragment  {
     };
 
     String[] mensaje = new String[]{
-            "10 %  de Descuenta en 2 x 1",
-            "Llevate una pizza familiar con 30% Descuento",
-            "10% en Electrodosmesticos"
+            "10 %  de Descuenta en 2 x 1 Codigo ABCXPOUOP",
+            "Llevate una pizza familiar con 30% Descuento Codigo ZBCXPOUOP",
+            "10% en Electrodosmesticos  Codigo PBCXPOUOP"
 
     };
 

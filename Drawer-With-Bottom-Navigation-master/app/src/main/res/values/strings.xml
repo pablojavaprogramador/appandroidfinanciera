@@ -42,4 +42,41 @@
     <string name="login_failed">"Login Incorrecto"</string>
     <string name="title_activity_login">LoginActivity</string>
 
+
+    <string-array name="recargas">
+        <item>30</item>
+        <item>50</item>
+        <item>100</item>
+        <item>150</item>
+        <item>200</item>
+        <item>300</item>
+        <item>500</item>
+    </string-array>
+
+    <string-array name="tarjetaderegalo">
+        <item>300</item>
+        <item>500</item>
+    </string-array>
+
+    <string-array name="pagoservicio">
+        <item>Codigo de Barras</item>
+        <item>Numero de Cuenta</item>
+    </string-array>
+
+    <string-array name="bitcoins">
+        <item>0.1 Bitcoin</item>
+        <item>0.2 Bitcoin</item>
+        <item>0.3 Bitcoin</item>
+        <item>0.4 Bitcoin</item>
+        <item>0.5 Bitcoin</item>
+        <item>0.6 Bitcoin</item>
+        <item>0.7 Bitcoin</item>
+        <item>0.8 Bitcoin</item>
+        <item>0.9 Bitcoin</item>
+        <item>1 Bitcoin</item>
+        <item>1.1 Bitcoin</item>
+        <item>1.2 Bitcoin</item>
+        <item>1.3 Bitcoin</item>
+        <item>1.4 Bitcoin</item>
+    </string-array>
 </resources>

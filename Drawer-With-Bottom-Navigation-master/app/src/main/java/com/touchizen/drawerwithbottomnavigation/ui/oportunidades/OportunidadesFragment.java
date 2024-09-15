@@ -22,14 +22,14 @@ import com.touchizen.drawerwithbottomnavigation.ui.cupones.CuponesFragment;
 import com.touchizen.drawerwithbottomnavigation.ui.mercadito.MercaditoFragment;
 import com.touchizen.drawerwithbottomnavigation.ui.pagoservicios.PagoServiciosFragment;
 import com.touchizen.drawerwithbottomnavigation.ui.recargas.RecargasFragment;
-import com.touchizen.drawerwithbottomnavigation.ui.tarjetaderegalo.TarjetasRegaloFragment;
+
 
 
 public class OportunidadesFragment extends Fragment {
 
 
 
-    ListViewAdapterOportunidades adapter;
+  //  ListViewAdapterOportunidades adapter;
     String[] titulo = new String[]{
             "¿Necesitas dinero ? obten un adelanto de quincena",
             "Pago de Servicios",
@@ -69,8 +69,8 @@ public class OportunidadesFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_oportunidades, container, false);
         final ListView lista = (ListView) root.findViewById(R.id.listView1);
-        adapter = new ListViewAdapterOportunidades(this, titulo, mensaje,imagenes,inflater);
-        lista.setAdapter(adapter);
+//        adapter = new ListViewAdapterOportunidades(this, titulo, mensaje,imagenes,inflater);
+//        lista.setAdapter(adapter);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @SuppressLint("ResourceType")
@@ -113,12 +113,12 @@ public class OportunidadesFragment extends Fragment {
                         break;
 
                     case 3:
-                        Fragment TarjetasdeRegalo = new TarjetasRegaloFragment();
-                        FragmentTransaction transaccionregalo = getParentFragmentManager().beginTransaction();
-                        transaccionregalo.replace(R.id.nav_host_fragment, TarjetasdeRegalo);
-                        transaccionregalo.addToBackStack("regalo");
-                        transaccionregalo.commit();
-                        Toast.makeText(getActivity(), "Tarjetas de Regalo" , Toast.LENGTH_SHORT).show();
+//                        Fragment TarjetasdeRegalo = new TarjetasRegaloFragment();
+//                        FragmentTransaction transaccionregalo = getParentFragmentManager().beginTransaction();
+//                        transaccionregalo.replace(R.id.nav_host_fragment, TarjetasdeRegalo);
+//                        transaccionregalo.addToBackStack("regalo");
+//                        transaccionregalo.commit();
+//                        Toast.makeText(getActivity(), "Tarjetas de Regalo" , Toast.LENGTH_SHORT).show();
 
                         break;
                     case 4:

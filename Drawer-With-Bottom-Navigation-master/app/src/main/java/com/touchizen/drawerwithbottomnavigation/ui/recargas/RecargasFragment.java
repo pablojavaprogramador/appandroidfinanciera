@@ -26,7 +26,6 @@ import com.touchizen.drawerwithbottomnavigation.ui.cupones.CuponesFragment;
 import com.touchizen.drawerwithbottomnavigation.ui.mercadito.MercaditoFragment;
 import com.touchizen.drawerwithbottomnavigation.ui.pago.PagoFragment;
 import com.touchizen.drawerwithbottomnavigation.ui.pagoservicios.PagoServiciosFragment;
-import com.touchizen.drawerwithbottomnavigation.ui.tarjetaderegalo.TarjetasRegaloFragment;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,7 +33,7 @@ import retrofit2.Response;
 
 public class RecargasFragment extends Fragment  {
 
-    ListViewAdapterRecargas adapter;
+  //  ListViewAdapterRecargas adapter;
     String[] titulo = new String[]{
             "Telcel",
             "Movistar",
@@ -75,8 +74,8 @@ public class RecargasFragment extends Fragment  {
 
 
         final ListView lista = (ListView) root.findViewById(R.id.listViewRecarga1);
-        adapter = new ListViewAdapterRecargas(this, titulo, mensaje,imagenes,inflater);
-        lista.setAdapter(adapter);
+       // adapter = new ListViewAdapterRecargas(this, titulo, mensaje,imagenes,inflater);
+       // lista.setAdapter(adapter);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @SuppressLint("ResourceType")

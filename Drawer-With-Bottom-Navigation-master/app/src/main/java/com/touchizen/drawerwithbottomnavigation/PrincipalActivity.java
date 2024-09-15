@@ -138,17 +138,17 @@ public class PrincipalActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 // Handle item selection
         switch (item.getItemId()) {
-            case R.id.SalirApp:
-                Intent intent = new Intent(PrincipalActivity.this, LoginActivity.class);
-                startActivity(intent);
-                System.exit(0);
-                return true;
-            case R.id.Conexion:
-                Toast.makeText(this, "Boton Conexion", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.Chatbot:
-                Toast.makeText(this, "Boton ChatBot", Toast.LENGTH_SHORT).show();
-                return true;
+//            case R.id.SalirApp:
+//                Intent intent = new Intent(PrincipalActivity.this, LoginActivity.class);
+//                startActivity(intent);
+//                System.exit(0);
+//                return true;
+//            case R.id.Conexion:
+//                Toast.makeText(this, "Boton Conexion", Toast.LENGTH_SHORT).show();
+//                return true;
+//            case R.id.Chatbot:
+//                Toast.makeText(this, "Boton ChatBot", Toast.LENGTH_SHORT).show();
+//                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

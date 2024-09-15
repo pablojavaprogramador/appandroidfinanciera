@@ -19,7 +19,6 @@ import com.touchizen.drawerwithbottomnavigation.R;
 import com.touchizen.drawerwithbottomnavigation.io.NetworkApiAdapter;
 import com.touchizen.drawerwithbottomnavigation.io.responses.ClienteResponse;
 import com.touchizen.drawerwithbottomnavigation.io.responses.UsuariosReponse;
-import com.touchizen.drawerwithbottomnavigation.ui.oportunidades.ListViewAdapterOportunidades;
 
 import retrofit2.Call;
 import retrofit2.Callback;

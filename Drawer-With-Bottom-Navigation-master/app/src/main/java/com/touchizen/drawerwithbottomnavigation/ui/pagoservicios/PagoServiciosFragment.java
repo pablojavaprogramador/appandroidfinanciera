@@ -16,13 +16,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.touchizen.drawerwithbottomnavigation.R;
-import com.touchizen.drawerwithbottomnavigation.ui.pago.FormulariopagodeserviciosFragment;
-import com.touchizen.drawerwithbottomnavigation.ui.pago.PagoTarjetasdeRegaloFragment;
 
 
 public class PagoServiciosFragment extends Fragment {
 
-    ListViewAdapterPagoServicios adapter;
+   // ListViewAdapterPagoServicios adapter;
     String[] titulo = new String[]{
             "Plan Celular",
             "Luz",
@@ -65,19 +63,19 @@ public class PagoServiciosFragment extends Fragment {
 
         final ListView lista = (ListView) root.findViewById(R.id.listViewRecarga1);
 
-        adapter = new ListViewAdapterPagoServicios(this, titulo, mensaje,imagenes,inflater);
-        lista.setAdapter(adapter);
+      //  adapter = new ListViewAdapterPagoServicios(this, titulo, mensaje,imagenes,inflater);
+      //  lista.setAdapter(adapter);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @SuppressLint("ResourceType")
             @Override
             public void onItemClick(AdapterView adapterView, View view, int i, long l) {
-                Fragment pagodeServicios = new FormulariopagodeserviciosFragment();
-                FragmentTransaction pagoServicios = getParentFragmentManager().beginTransaction();
-                pagoServicios.replace(R.id.nav_host_fragment, pagodeServicios);
-                pagoServicios.addToBackStack("tarjetasderegalo");
+             //   Fragment pagodeServicios = new FormulariopagodeserviciosFragment();
+//                FragmentTransaction pagoServicios = getParentFragmentManager().beginTransaction();
+//                pagoServicios.replace(R.id.nav_host_fragment, pagodeServicios);
+//                pagoServicios.addToBackStack("tarjetasderegalo");
                 // Commit a la transacción
-                pagoServicios.commit();
+                //pagoServicios.commit();
                 Toast.makeText(getActivity(), "Tarjetas de regalo" + i, Toast.LENGTH_SHORT).show();
             }
         });

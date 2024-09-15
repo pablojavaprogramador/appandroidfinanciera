@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.touchizen.drawerwithbottomnavigation.R;
-import com.touchizen.drawerwithbottomnavigation.ui.notificaciones.NotificacionesFragment;
 
 public class ListViewAdapterAyuda extends BaseAdapter {
     // Declare Variables

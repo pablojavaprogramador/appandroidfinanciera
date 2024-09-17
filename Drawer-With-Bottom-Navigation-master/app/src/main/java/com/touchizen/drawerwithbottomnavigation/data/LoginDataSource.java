@@ -15,74 +15,52 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Class that handles authentication w/ login credentials and retrieves user information.
+ * Class that handles authentication with login credentials and retrieves user information.
  */
-public class LoginDataSource implements Callback<LoginResponse> {
-    LoginResponse respuesta=null;
+public class LoginDataSource {
+
     public Result<LoggedInUser> login(String username, String password) {
-
         try {
-            // TODO: handle loggedInUser authentication
+            LoginRequest loginRequest = new LoginRequest(username, password);
 
-            LoginRequest enviodatos=new LoginRequest();
-            enviodatos.setUsername(username);
-            enviodatos.setPassword(password);
-           LoginUsuarios(enviodatos);
+            // Realiza la solicitud de autenticación en un hilo separado
+            Call<LoginResponse> call = NetworkApiAdapter.getApiService().autentificacion(loginRequest);
+            call.enqueue(new Callback<LoginResponse>() {
+                @Override
+                public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                    if (response.isSuccessful() && response.code() == 200 && response.body() != null) {
+                        LoginResponse loginResponse = response.body();
 
-            LoggedInUser fakeUser =
-                    new LoggedInUser(
-                            java.util.UUID.randomUUID().toString(),
-                            "Jane Doe");
-            return new Result.Success<>(fakeUser);
+                        // Si el login es exitoso, crea un LoggedInUser y actualiza el resultado
+                        LoggedInUser user = new LoggedInUser(
+                                java.util.UUID.randomUUID().toString(), // Genera un ID único para el usuario
+                                username // Nombre del usuario obtenido del servidor
+                        );
+                        // Aquí debes informar a la capa que maneja los resultados del login
+                        // Ejemplo: loginResult.postValue(new Result.Success<>(user));
+                    } else {
+                        Log.i("LoginDataSource", "Server returned error: " + response.message());
+                        // Ejemplo: loginResult.postValue(new Result.Error(new IOException("Server error")));
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<LoginResponse> call, Throwable t) {
+                    Log.i("LoginDataSource", "Network Error: " + t.getLocalizedMessage());
+                    // Ejemplo: loginResult.postValue(new Result.Error(new IOException("Network error")));
+                }
+            });
+
+            // Retorna un estado provisional mientras se procesa la solicitud
+         //   return new Result.Loading(); // Deberías manejar el estado de carga en la capa de ViewModel
 
         } catch (Exception e) {
             return new Result.Error(new IOException("Error logging in", e));
         }
+        return null;
     }
 
     public void logout() {
-
+        // Implementa la lógica de cierre de sesión si es necesario
     }
-
-    @SuppressLint("LongLogTag")
-    private void LoginUsuarios(LoginRequest enviodatos) {
-
-        Call<LoginResponse> call = NetworkApiAdapter.getApiService().autentificacion(enviodatos);
-        call.enqueue(this);
-        Log.i("entro en Registrar Cliente","ewqe");
-     //   return call;
-
-    }
-
-
-    private void poblarLogin(Response<LoginResponse> body) {
-
-    }
-
-    @Override
-    public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-        if(response.isSuccessful()){
-           // LoginResponse respuestaServicioLogin=response.body();
-            poblarLogin(response);
-        }else{
-
-            Log.i("error", String.valueOf(response.message()));
-
-
-        }
-    }
-
-
-
-    @Override
-    public void onFailure(Call<LoginResponse> call, Throwable t) {
-        System.out.println("Network Error :: " + t.getLocalizedMessage());
-        Log.i("errordos", t.getLocalizedMessage());
-    }
-
-
-
-
-
-
 }

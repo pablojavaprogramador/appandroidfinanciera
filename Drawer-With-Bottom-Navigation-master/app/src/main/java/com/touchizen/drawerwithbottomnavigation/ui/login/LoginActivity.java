@@ -23,11 +23,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.touchizen.drawerwithbottomnavigation.MainActivity;
 import com.touchizen.drawerwithbottomnavigation.PrincipalActivity;
 import com.touchizen.drawerwithbottomnavigation.R;
-import com.touchizen.drawerwithbottomnavigation.ui.login.LoginViewModel;
-import com.touchizen.drawerwithbottomnavigation.ui.login.LoginViewModelFactory;
+import com.touchizen.drawerwithbottomnavigation.data.LoginDataSource;
 import com.touchizen.drawerwithbottomnavigation.ui.registroUsuario.RegistroActivity;
 
 //import com.touchizen.drawerwithbottomnavigation.databinding.ActivityLoginBinding;
@@ -44,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
 //        binding = ActivityLoginBinding.inflate(getLayoutInflater());
 //        setContentView(binding.getRoot());
 
-        loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
+        loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory(new LoginDataSource()))
                 .get(LoginViewModel.class);
 
         final EditText usernameEditText =  findViewById(R.id.username);

@@ -2,25 +2,23 @@ package com.touchizen.drawerwithbottomnavigation.ui.login;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.annotation.NonNull;
 
 import com.touchizen.drawerwithbottomnavigation.data.LoginDataSource;
-import com.touchizen.drawerwithbottomnavigation.data.LoginRepository;
 
-/**
- * ViewModel provider factory to instantiate LoginViewModel.
- * Required given LoginViewModel has a non-empty constructor
- */
 public class LoginViewModelFactory implements ViewModelProvider.Factory {
 
-    @NonNull
+    private final LoginDataSource loginDataSource;
+
+    public LoginViewModelFactory(LoginDataSource loginDataSource) {
+        this.loginDataSource = loginDataSource;
+    }
+
     @Override
-    @SuppressWarnings("unchecked")
-    public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
+    public <T extends ViewModel> T create(Class<T> modelClass) {
         if (modelClass.isAssignableFrom(LoginViewModel.class)) {
-            return (T) new LoginViewModel(LoginRepository.getInstance(new LoginDataSource()));
-        } else {
-            throw new IllegalArgumentException("Unknown ViewModel class");
+            // Crear una instancia de LoginViewModel
+            return (T) new LoginViewModel(loginDataSource);
         }
+        throw new IllegalArgumentException("Unknown ViewModel class");
     }
 }

@@ -4,21 +4,31 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import android.util.Patterns;
-
-import com.touchizen.drawerwithbottomnavigation.data.LoginRepository;
-import com.touchizen.drawerwithbottomnavigation.data.Result;
-import com.touchizen.drawerwithbottomnavigation.data.model.LoggedInUser;
 import com.touchizen.drawerwithbottomnavigation.R;
+import com.touchizen.drawerwithbottomnavigation.data.LoginDataSource;
+import com.touchizen.drawerwithbottomnavigation.io.request.LoginRequest;
+import com.touchizen.drawerwithbottomnavigation.io.responses.LoginResponse;
+import com.touchizen.drawerwithbottomnavigation.network.ApiService;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginViewModel extends ViewModel {
 
-    private MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
-    private MutableLiveData<LoginResult> loginResult = new MutableLiveData<>();
-    private LoginRepository loginRepository;
+    private final MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
+    private final MutableLiveData<LoginResult> loginResult = new MutableLiveData<>();
+    private ApiService loginService;
 
-    LoginViewModel(LoginRepository loginRepository) {
-        this.loginRepository = loginRepository;
+    public LoginViewModel(LoginDataSource loginDataSource) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.1.11:9090/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        loginService = retrofit.create(ApiService.class);
     }
 
     LiveData<LoginFormState> getLoginFormState() {
@@ -29,21 +39,29 @@ public class LoginViewModel extends ViewModel {
         return loginResult;
     }
 
-    public void login(String username, String password) {
-        // can be launched in a separate asynchronous job
-        Result<LoggedInUser> result = loginRepository.login(username, password);
+    public void login(String email, String password) {
+        LoginRequest loginRequest = new LoginRequest(email, password);
+        loginService.login(loginRequest).enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                if (response.isSuccessful()) {
+                    LoginResponse loginResponse = response.body();
+                    loginResult.setValue(new LoginResult(new LoggedInUserView(email, "User")));
+                } else {
+                    loginResult.setValue(new LoginResult(R.string.login_failed));
+                }
+            }
 
-        if (result instanceof Result.Success) {
-            LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
-            loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
-        } else {
-            loginResult.setValue(new LoginResult(R.string.login_failed));
-        }
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                loginResult.setValue(new LoginResult(R.string.login_failed));
+            }
+        });
     }
 
-    public void loginDataChanged(String username, String password) {
-        if (!isUserNameValid(username)) {
-            loginFormState.setValue(new LoginFormState(R.string.invalid_username, null));
+    public void loginDataChanged(String email, String password) {
+        if (!isEmailValid(email)) {
+            loginFormState.setValue(new LoginFormState(R.string.invalid_email, null));
         } else if (!isPasswordValid(password)) {
             loginFormState.setValue(new LoginFormState(null, R.string.invalid_password));
         } else {
@@ -51,19 +69,10 @@ public class LoginViewModel extends ViewModel {
         }
     }
 
-    // A placeholder username validation check
-    private boolean isUserNameValid(String username) {
-        if (username == null) {
-            return false;
-        }
-        if (username.contains("@")) {
-            return Patterns.EMAIL_ADDRESS.matcher(username).matches();
-        } else {
-            return !username.trim().isEmpty();
-        }
+    private boolean isEmailValid(String email) {
+        return email != null && email.contains("@");
     }
 
-    // A placeholder password validation check
     private boolean isPasswordValid(String password) {
         return password != null && password.trim().length() > 5;
     }

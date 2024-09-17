@@ -1,17 +1,26 @@
 package com.touchizen.drawerwithbottomnavigation.io.request;
 
-
 public class LoginRequest {
 
-    private String username;
+    private String email;
     private String password;
 
-    public String getUsername() {
-        return username;
+    // Constructor sin argumentos
+    public LoginRequest() {
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    // Constructor con argumentos
+    public LoginRequest(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {

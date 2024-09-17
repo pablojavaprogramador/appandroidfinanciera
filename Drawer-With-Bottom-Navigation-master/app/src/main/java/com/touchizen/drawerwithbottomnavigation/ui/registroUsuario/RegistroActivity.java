@@ -146,12 +146,13 @@ public class RegistroActivity extends ComponentActivity {
         // Crear la notificación
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.baseline_account_balance_24) // Asegúrate de tener un icono en drawable
-                .setContentTitle("Token enviado" )
-                .setContentText("Token enviado. Verifica tu correo para continuar.")
+                .setContentTitle("Token enviado")
+                .setContentText("Por favor, valida tu cuenta. El token de verificación ha sido enviado a tu correo electrónico.")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setAutoCancel(true)  // La notificación desaparecerá al tocarla
                 .setContentIntent(pendingIntent)  // Intención al tocar la notificación
-                .setStyle(new NotificationCompat.BigTextStyle().bigText("La autenticación ha sido enviada a tu correo. Revisa tu bandeja de entrada o spam."));
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText("Por favor, valida tu cuenta. El token de verificación ha sido enviado a tu correo electrónico. Si no ves el correo, revisa tu bandeja de entrada o carpeta de spam.")); // Texto expandido
 
         // Verifica que el permiso haya sido otorgado antes de intentar enviar la notificación
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) {

@@ -1,4 +1,3 @@
-
 package com.touchizen.drawerwithbottomnavigation.ui.reset;
 
 import android.content.Intent;
@@ -7,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.touchizen.drawerwithbottomnavigation.R;
@@ -69,6 +70,11 @@ public class PasswordResetConfirmationActivity extends AppCompatActivity {
                     PasswordResetConfirmationResponse resetResponse = response.body();
                     if (resetResponse != null && resetResponse.isSuccess()) {
                         messageTextView.setText("Contraseña restablecida exitosamente.");
+                        Toast.makeText(PasswordResetConfirmationActivity.this, "Token validado exitosamente", Toast.LENGTH_SHORT).show();
+                        // Redirigir al login después de la validación exitosa
+                        Intent intent = new Intent(PasswordResetConfirmationActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
                     } else {
                         messageTextView.setText("Token inválido o expirado.");
                     }

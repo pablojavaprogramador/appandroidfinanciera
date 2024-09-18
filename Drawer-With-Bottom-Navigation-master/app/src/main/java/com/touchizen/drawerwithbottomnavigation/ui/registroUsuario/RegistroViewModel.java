@@ -21,20 +21,20 @@ public class RegistroViewModel extends ViewModel {
         this.userRepository = userRepository;
     }
 
-    public void registerUser(String usuario, String email, String password) {
+    public void registerUser(String usuario, String email, String password, boolean avisoPrivacidad) {
         RequestRegistro request = new RequestRegistro();
         request.setLogin(usuario);
         request.setEmail(email);
         request.setPassword(password);
+        request.setAceptoAvisoPrivacidad(avisoPrivacidad);
 
         userRepository.registerUser(request).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccessful()) {
-                    _status.setValue("Registro exitoso");
+                    _status.setValue("Registro exitoso, Validacion Pendiente");
                 } else {
-
-                    _status.setValue("Error en el registro "+response.message().toString() );
+                    _status.setValue("Error en el registro: " + response.message());
                 }
             }
 

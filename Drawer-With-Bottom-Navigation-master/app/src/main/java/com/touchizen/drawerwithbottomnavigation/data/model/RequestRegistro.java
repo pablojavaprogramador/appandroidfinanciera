@@ -4,6 +4,15 @@ public class RequestRegistro {
     private String login;
     private String email;
     private String password;
+    private boolean aceptoAvisoPrivacidad;
+
+    public boolean isAceptoAvisoPrivacidad() {
+        return aceptoAvisoPrivacidad;
+    }
+
+    public void setAceptoAvisoPrivacidad(boolean aceptoAvisoPrivacidad) {
+        this.aceptoAvisoPrivacidad = aceptoAvisoPrivacidad;
+    }
 
     public String getLogin() {
         return login;

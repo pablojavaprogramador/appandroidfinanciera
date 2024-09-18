@@ -79,6 +79,19 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="20dp" />
 
+        <!-- CheckBox para Aviso de Privacidad -->
+        <CheckBox
+            android:id="@+id/checkBoxAvisoPrivacidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Acepto el aviso de privacidad"
+            android:textColor="#FFFFFF"
+            android:buttonTint="#077EDC"
+            app:layout_constraintTop_toBottomOf="@id/editTextConfirmarPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp" />
+
         <!-- Botón de Registro -->
         <Button
             android:id="@+id/buttonRegistrarUsuario"
@@ -87,7 +100,7 @@
             android:text="Registrarte"
             android:textColor="#FFFFFF"
             android:backgroundTint="#0b84aa"
-            app:layout_constraintTop_toBottomOf="@id/editTextConfirmarPassword"
+            app:layout_constraintTop_toBottomOf="@id/checkBoxAvisoPrivacidad"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginHorizontal="16dp"

@@ -27,6 +27,7 @@ import com.touchizen.drawerwithbottomnavigation.PrincipalActivity;
 import com.touchizen.drawerwithbottomnavigation.R;
 import com.touchizen.drawerwithbottomnavigation.data.LoginDataSource;
 import com.touchizen.drawerwithbottomnavigation.ui.registroUsuario.RegistroActivity;
+import com.touchizen.drawerwithbottomnavigation.ui.reset.PasswordResetRequestActivity;
 
 //import com.touchizen.drawerwithbottomnavigation.databinding.ActivityLoginBinding;
 
@@ -51,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
 
 //        final Button registrarButton = findViewById(R.id.Registrar);
         final TextView registrarLink=findViewById(R.id.link_to_registro);
+        final TextView  recuperacionPassword=findViewById(R.id.link_recuperar_contrasena);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);;
 //estado de escucha de android si es nulllo marca advertencia roja
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
@@ -141,6 +143,19 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+
+
+        recuperacionPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadingProgressBar.setVisibility(View.VISIBLE);
+                Toast.makeText(getApplicationContext(), "Recuperacion de Contraseña", Toast.LENGTH_LONG).show();
+                Intent intent=new Intent(LoginActivity.this, PasswordResetRequestActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 

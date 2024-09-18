@@ -15,7 +15,6 @@ import com.touchizen.drawerwithbottomnavigation.R;
 import com.touchizen.drawerwithbottomnavigation.data.repository.UserRepository;
 import com.touchizen.drawerwithbottomnavigation.network.NetworkApiAdapter;
 import com.touchizen.drawerwithbottomnavigation.ui.login.LoginActivity;
-import com.touchizen.drawerwithbottomnavigation.ui.registroUsuario.RegistroViewModel;
 import com.touchizen.drawerwithbottomnavigation.ui.registroUsuario.RegistroViewModelFactory;
 
 public class RegistroActivity extends AppCompatActivity {
@@ -46,7 +45,10 @@ public class RegistroActivity extends AppCompatActivity {
         // Verificar el estado del registro
         registroViewModel.status.observe(this, status -> {
             if (status.equals("Registro exitoso, Validacion Pendiente")) {
-                Intent intent = new Intent(RegistroActivity.this, LoginActivity.class);
+                Toast.makeText(this, "Registro exitoso, por favor verifica tu correo", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(RegistroActivity.this, TokenValidationActivity.class);
+                // Enviar el token como extra (este es un ejemplo, adapta según cómo obtengas el token)
+                intent.putExtra("TOKEN", "b6f775d2-b365-47b3-8b7e-d8473e161c67");
                 startActivity(intent);
                 finish();
             } else {

@@ -44,7 +44,11 @@
             android:name=".ui.registroUsuario.RegistroActivity">
         </activity>
 
-        <!-- Agrega estas dos actividades -->
+        <!-- Agrega aquí la actividad de validación de token -->
+        <activity
+            android:name=".ui.registroUsuario.TokenValidationActivity">
+        </activity>
+
         <activity
             android:name=".ui.reset.PasswordResetRequestActivity">
         </activity>

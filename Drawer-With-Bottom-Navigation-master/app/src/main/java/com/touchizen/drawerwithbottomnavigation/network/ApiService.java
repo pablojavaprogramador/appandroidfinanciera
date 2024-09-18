@@ -7,7 +7,7 @@ import com.touchizen.drawerwithbottomnavigation.io.request.PasswordResetRequest;
 import com.touchizen.drawerwithbottomnavigation.io.responses.LoginResponse;
 import com.touchizen.drawerwithbottomnavigation.io.responses.PasswordResetConfirmationResponse;
 import com.touchizen.drawerwithbottomnavigation.io.responses.PasswordResetResponse;
-
+import com.touchizen.drawerwithbottomnavigation.io.request.TokenVerificationRequest;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
@@ -15,6 +15,9 @@ import retrofit2.http.POST;
 public interface ApiService {
     @POST("/auth/signup")
     Call<Void> registerUser(@Body RequestRegistro request);
+    @POST("/verificar")
+    Call<Void> verifyToken(@Body TokenVerificationRequest request);
+
     @POST("/auth/login")
     Call<LoginResponse> login(@Body LoginRequest request);
 

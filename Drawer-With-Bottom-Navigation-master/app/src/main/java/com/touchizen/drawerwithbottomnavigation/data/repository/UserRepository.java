@@ -2,6 +2,7 @@ package com.touchizen.drawerwithbottomnavigation.data.repository;
 
 
 import com.touchizen.drawerwithbottomnavigation.data.model.RequestRegistro;
+import com.touchizen.drawerwithbottomnavigation.io.request.TokenVerificationRequest;
 import com.touchizen.drawerwithbottomnavigation.network.ApiService;
 
 import retrofit2.Call;
@@ -18,6 +19,12 @@ public class UserRepository {
 
     public Call<Void> registerUser(RequestRegistro request) {
         return apiService.registerUser(request);
+    }
+
+
+    public Call<Void> verifyToken(String token) {
+        TokenVerificationRequest request = new TokenVerificationRequest(token);
+        return apiService.verifyToken(request);
     }
 
     public void handleResponse(Response<Void> response) {

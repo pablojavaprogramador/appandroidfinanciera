@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetworkApiAdapter {
 
-    private static final String BASE_URL = "http://192.168.1.11:9090/";
+    private static final String BASE_URL = "http://192.168.1.8:9090/";
 
     public static ApiService getApiService() {
         Retrofit retrofit = new Retrofit.Builder()
@@ -15,14 +15,4 @@ public class NetworkApiAdapter {
 
         return retrofit.create(ApiService.class);
     }
-
-    public static ApiService getLoginService() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        return retrofit.create(ApiService.class);
-    }
-
 }

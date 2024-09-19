@@ -8,13 +8,12 @@ import com.touchizen.drawerwithbottomnavigation.R;
 import com.touchizen.drawerwithbottomnavigation.data.LoginDataSource;
 import com.touchizen.drawerwithbottomnavigation.io.request.LoginRequest;
 import com.touchizen.drawerwithbottomnavigation.io.responses.LoginResponse;
+import com.touchizen.drawerwithbottomnavigation.network.NetworkApiAdapter;
 import com.touchizen.drawerwithbottomnavigation.network.ApiService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginViewModel extends ViewModel {
 
@@ -23,12 +22,8 @@ public class LoginViewModel extends ViewModel {
     private ApiService loginService;
 
     public LoginViewModel(LoginDataSource loginDataSource) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.11:9090/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        loginService = retrofit.create(ApiService.class);
+        // Usa el adapter para obtener el ApiService
+        loginService = NetworkApiAdapter.getApiService();
     }
 
     LiveData<LoginFormState> getLoginFormState() {

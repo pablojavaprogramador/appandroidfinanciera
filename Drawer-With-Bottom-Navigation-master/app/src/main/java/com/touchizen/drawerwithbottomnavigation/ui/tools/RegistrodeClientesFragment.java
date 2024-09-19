@@ -13,14 +13,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
 import com.touchizen.drawerwithbottomnavigation.R;
-import com.touchizen.drawerwithbottomnavigation.io.NetworkApiAdapter;
 import com.touchizen.drawerwithbottomnavigation.io.request.Clientes;
-import com.touchizen.drawerwithbottomnavigation.io.responses.error.ApiResponseError;
-import com.touchizen.drawerwithbottomnavigation.io.responses.error.FieldError;
-
-import java.util.List;
+import com.touchizen.drawerwithbottomnavigation.network.NetworkApiAdapter;
 
 import retrofit2.Call;
 import retrofit2.Callback;

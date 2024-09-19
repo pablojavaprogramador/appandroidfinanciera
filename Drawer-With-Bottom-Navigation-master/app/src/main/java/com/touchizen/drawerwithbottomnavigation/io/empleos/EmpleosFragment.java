@@ -15,8 +15,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.touchizen.drawerwithbottomnavigation.R;
-import com.touchizen.drawerwithbottomnavigation.io.NetworkApiAdapter;
 import com.touchizen.drawerwithbottomnavigation.io.request.Empleos;
+import com.touchizen.drawerwithbottomnavigation.network.NetworkApiAdapter;
 import com.touchizen.drawerwithbottomnavigation.ui.tools.ToolsViewModel;
 
 import retrofit2.Call;

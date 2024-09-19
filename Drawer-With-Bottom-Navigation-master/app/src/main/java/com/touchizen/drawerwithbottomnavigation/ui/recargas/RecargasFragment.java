@@ -3,7 +3,6 @@ package com.touchizen.drawerwithbottomnavigation.ui.recargas;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,18 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.touchizen.drawerwithbottomnavigation.R;
-import com.touchizen.drawerwithbottomnavigation.io.NetworkApiAdapter;
-import com.touchizen.drawerwithbottomnavigation.io.request.ReferenciaPersonal;
-import com.touchizen.drawerwithbottomnavigation.ui.bitcoin.BitcoinFragment;
-import com.touchizen.drawerwithbottomnavigation.ui.credito.CreditoFragment;
-import com.touchizen.drawerwithbottomnavigation.ui.cupones.CuponesFragment;
-import com.touchizen.drawerwithbottomnavigation.ui.mercadito.MercaditoFragment;
 import com.touchizen.drawerwithbottomnavigation.ui.pago.PagoFragment;
-import com.touchizen.drawerwithbottomnavigation.ui.pagoservicios.PagoServiciosFragment;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class RecargasFragment extends Fragment  {
 

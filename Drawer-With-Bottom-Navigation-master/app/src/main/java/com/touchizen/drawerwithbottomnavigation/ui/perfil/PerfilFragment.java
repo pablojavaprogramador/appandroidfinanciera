@@ -10,8 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.touchizen.drawerwithbottomnavigation.R;
-import com.touchizen.drawerwithbottomnavigation.io.NetworkApiAdapter;
 import com.touchizen.drawerwithbottomnavigation.io.responses.ClienteResponse;
+import com.touchizen.drawerwithbottomnavigation.network.NetworkApiAdapter;
 
 import retrofit2.Call;
 import retrofit2.Callback;

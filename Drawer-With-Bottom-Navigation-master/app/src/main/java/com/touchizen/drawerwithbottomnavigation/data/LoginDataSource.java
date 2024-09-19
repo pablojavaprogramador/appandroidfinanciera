@@ -1,12 +1,11 @@
 package com.touchizen.drawerwithbottomnavigation.data;
 
-import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.touchizen.drawerwithbottomnavigation.data.model.LoggedInUser;
-import com.touchizen.drawerwithbottomnavigation.io.NetworkApiAdapter;
 import com.touchizen.drawerwithbottomnavigation.io.request.LoginRequest;
 import com.touchizen.drawerwithbottomnavigation.io.responses.LoginResponse;
+import com.touchizen.drawerwithbottomnavigation.network.NetworkApiAdapter;
 
 import java.io.IOException;
 

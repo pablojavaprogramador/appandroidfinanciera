@@ -14,10 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.touchizen.drawerwithbottomnavigation.R;
-import com.touchizen.drawerwithbottomnavigation.io.NetworkApiAdapter;
-import com.touchizen.drawerwithbottomnavigation.io.request.Clientes;
 import com.touchizen.drawerwithbottomnavigation.io.request.Domicilios;
 import com.touchizen.drawerwithbottomnavigation.io.responses.RespuestaOk;
+import com.touchizen.drawerwithbottomnavigation.network.NetworkApiAdapter;
 
 import retrofit2.Call;
 import retrofit2.Callback;

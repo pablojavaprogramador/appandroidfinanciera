@@ -42,6 +42,7 @@
     <string name="login_failed">"Login Incorrecto"</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="invalid_email">Correo Invalido</string>
+    <string name="desc_password_toggle">\tpassword</string>
 
 
     <string-array name="recargas">

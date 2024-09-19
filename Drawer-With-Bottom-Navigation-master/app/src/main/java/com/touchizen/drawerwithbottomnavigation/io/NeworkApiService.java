@@ -5,7 +5,6 @@ import com.touchizen.drawerwithbottomnavigation.io.request.Empleos;
 import com.touchizen.drawerwithbottomnavigation.io.request.LoginRequest;
 
 import com.touchizen.drawerwithbottomnavigation.io.responses.ClienteResponse;
-import com.touchizen.drawerwithbottomnavigation.io.request.RequestRegistro;
 import com.touchizen.drawerwithbottomnavigation.io.request.Clientes;
 import com.touchizen.drawerwithbottomnavigation.io.request.ReferenciaPersonal;
 import com.touchizen.drawerwithbottomnavigation.io.responses.LoginResponse;
@@ -25,8 +24,6 @@ public interface NeworkApiService {
     Call<ArrayList<Clientes>>getClientes();
     @GET("clientes/{idCliente}")
     Call<ClienteResponse>getCliente(@Path("idCliente") String idCliente);
-    @POST("usuarios")
-    Call<Void> registroUsuarios(@Body RequestRegistro simpleResponse);
 
     @GET("usuarios/{idUsuarios}")
     Call<UsuariosReponse>getUsuarios(@Path("idUsuarios") String usuarios);

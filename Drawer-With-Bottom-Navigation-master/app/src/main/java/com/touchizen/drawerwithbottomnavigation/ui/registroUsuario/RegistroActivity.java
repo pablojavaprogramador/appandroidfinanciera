@@ -1,10 +1,14 @@
 package com.touchizen.drawerwithbottomnavigation.ui.registroUsuario;
-
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,13 +19,13 @@ import com.touchizen.drawerwithbottomnavigation.R;
 import com.touchizen.drawerwithbottomnavigation.data.repository.UserRepository;
 import com.touchizen.drawerwithbottomnavigation.network.NetworkApiAdapter;
 import com.touchizen.drawerwithbottomnavigation.ui.login.LoginActivity;
-import com.touchizen.drawerwithbottomnavigation.ui.registroUsuario.RegistroViewModelFactory;
 
 public class RegistroActivity extends AppCompatActivity {
 
     private EditText nombreCliente, correoElectronico, password, confirmarPassword;
     private CheckBox avisoPrivacidad;
     private RegistroViewModel registroViewModel;
+    private AlertDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +46,10 @@ public class RegistroActivity extends AppCompatActivity {
         RegistroViewModelFactory factory = new RegistroViewModelFactory(userRepository);
         registroViewModel = new ViewModelProvider(this, factory).get(RegistroViewModel.class);
 
-        // Verificar el estado del registro
+        // Configurar el progreso en la vista
         registroViewModel.status.observe(this, status -> {
+            hideProgressDialog(); // Ocultar el diálogo de progreso
+
             if (status.equals("Registro exitoso, Validacion Pendiente")) {
                 Toast.makeText(this, "Registro exitoso, por favor verifica tu correo", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(RegistroActivity.this, TokenValidationActivity.class);
@@ -69,6 +75,7 @@ public class RegistroActivity extends AppCompatActivity {
             } else if (!aceptoAvisoPrivacidad) {
                 Toast.makeText(this, "Debes aceptar el aviso de privacidad", Toast.LENGTH_SHORT).show();
             } else {
+                showProgressDialog(); // Mostrar el diálogo de progreso
                 registroViewModel.registerUser(nombre, email, pass, aceptoAvisoPrivacidad);
             }
         });
@@ -79,5 +86,26 @@ public class RegistroActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+    }
+
+    private void showProgressDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Por favor espera");
+        builder.setMessage("Enviando Token al Correo...");
+        builder.setCancelable(false);
+
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.progress_dialog, null);
+        ProgressBar progressBar = dialogView.findViewById(R.id.progressBar);
+        builder.setView(dialogView);
+
+        progressDialog = builder.create();
+        progressDialog.show();
+    }
+
+    private void hideProgressDialog() {
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
     }
 }

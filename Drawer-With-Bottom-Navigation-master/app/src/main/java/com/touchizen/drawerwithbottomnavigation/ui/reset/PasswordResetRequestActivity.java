@@ -21,8 +21,9 @@ public class PasswordResetRequestActivity extends AppCompatActivity {
     private EditText emailEditText;
     private Button sendRequestButton;
     private TextView messageTextView;
-    private TextView linkToLoginTextView;  // TextView para el enlace a login
+    private TextView linkToLoginTextView;
     private ApiService apiService;
+    private ProgressDialogHelper progressDialogHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +33,10 @@ public class PasswordResetRequestActivity extends AppCompatActivity {
         emailEditText = findViewById(R.id.editTextEmailAddress);
         sendRequestButton = findViewById(R.id.buttonSendResetRequest);
         messageTextView = findViewById(R.id.resetPasswordMessage);
-        linkToLoginTextView = findViewById(R.id.link_to_login);  // Inicializar el TextView
+        linkToLoginTextView = findViewById(R.id.link_to_login);
 
         apiService = NetworkApiAdapter.getApiService();
+        progressDialogHelper = new ProgressDialogHelper(this);
 
         sendRequestButton.setOnClickListener(v -> {
             String email = emailEditText.getText().toString().trim();
@@ -45,24 +47,25 @@ public class PasswordResetRequestActivity extends AppCompatActivity {
             }
         });
 
-        // Configurar la redirección a LoginActivity al hacer clic en el enlace
         linkToLoginTextView.setOnClickListener(v -> {
             Intent intent = new Intent(PasswordResetRequestActivity.this, LoginActivity.class);
             startActivity(intent);
-            finish();  // Cerrar la actividad actual
+            finish();
         });
     }
 
     private void sendResetPasswordRequest(String email) {
+        progressDialogHelper.show();
+
         PasswordResetRequest request = new PasswordResetRequest(email);
         apiService.resetPassword(request).enqueue(new Callback<PasswordResetResponse>() {
             @Override
             public void onResponse(Call<PasswordResetResponse> call, Response<PasswordResetResponse> response) {
+                progressDialogHelper.hide();
                 if (response.isSuccessful()) {
                     PasswordResetResponse resetResponse = response.body();
                     if (resetResponse != null && resetResponse.isSuccess()) {
                         messageTextView.setText("Se ha enviado un correo para restablecer la contraseña.");
-                        // Navegar a la pantalla de confirmación de código
                         Intent intent = new Intent(PasswordResetRequestActivity.this, PasswordResetConfirmationActivity.class);
                         startActivity(intent);
                     } else {
@@ -75,6 +78,7 @@ public class PasswordResetRequestActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<PasswordResetResponse> call, Throwable t) {
+                progressDialogHelper.hide();
                 messageTextView.setText("Error de red. Intente nuevamente.");
             }
         });

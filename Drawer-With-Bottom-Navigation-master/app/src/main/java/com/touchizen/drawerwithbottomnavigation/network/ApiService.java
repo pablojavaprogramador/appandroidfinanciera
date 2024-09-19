@@ -1,14 +1,14 @@
 package com.touchizen.drawerwithbottomnavigation.network;
 
 import com.touchizen.drawerwithbottomnavigation.data.model.RequestRegistro;
-import com.touchizen.drawerwithbottomnavigation.io.request.Clientes;
+import com.touchizen.drawerwithbottomnavigation.io.request.ClientesRequestAntiguo;
 import com.touchizen.drawerwithbottomnavigation.io.request.Domicilios;
 import com.touchizen.drawerwithbottomnavigation.io.request.Empleos;
 import com.touchizen.drawerwithbottomnavigation.io.request.LoginRequest;
 import com.touchizen.drawerwithbottomnavigation.io.request.PasswordResetConfirmationRequest;
 import com.touchizen.drawerwithbottomnavigation.io.request.PasswordResetRequest;
 import com.touchizen.drawerwithbottomnavigation.io.request.ReferenciaPersonal;
-import com.touchizen.drawerwithbottomnavigation.io.responses.ClienteResponse;
+import com.touchizen.drawerwithbottomnavigation.io.responses.ClienteRespuestaAntiguo;
 import com.touchizen.drawerwithbottomnavigation.io.responses.LoginResponse;
 import com.touchizen.drawerwithbottomnavigation.io.responses.PasswordResetConfirmationResponse;
 import com.touchizen.drawerwithbottomnavigation.io.responses.PasswordResetResponse;
@@ -43,9 +43,9 @@ public interface ApiService {
 //Revisar Despues
 
     @GET("clientes")
-    Call<ArrayList<Clientes>>getClientes();
+    Call<ArrayList<ClientesRequestAntiguo>>getClientes();
     @GET("clientes/{idCliente}")
-    Call<ClienteResponse>getCliente(@Path("idCliente") String idCliente);
+    Call<ClienteRespuestaAntiguo>getCliente(@Path("idCliente") String idCliente);
 
     @GET("usuarios/{idUsuarios}")
     Call<UsuariosReponse>getUsuarios(@Path("idUsuarios") String usuarios);
@@ -56,7 +56,7 @@ public interface ApiService {
     @POST("referencia-personales")
     Call<Void>registroReferencia(@Body ReferenciaPersonal referencia);
     @POST("clientes")
-    Call<Void>RegistroClientes(@Body Clientes clientes );
+    Call<Void>RegistroClientes(@Body ClientesRequestAntiguo clientes );
     @POST("empleos")
     Call<Void>RegistroEmpleos(@Body Empleos empleos );
     @POST("domicilios")

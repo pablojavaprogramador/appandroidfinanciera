@@ -10,14 +10,14 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.touchizen.drawerwithbottomnavigation.R;
-import com.touchizen.drawerwithbottomnavigation.io.responses.ClienteResponse;
+import com.touchizen.drawerwithbottomnavigation.io.responses.ClienteRespuestaAntiguo;
 import com.touchizen.drawerwithbottomnavigation.network.NetworkApiAdapter;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PerfilFragment extends Fragment implements Callback<ClienteResponse> {
+public class PerfilFragment extends Fragment implements Callback<ClienteRespuestaAntiguo> {
     public TextView textView=null;
     public  TextView textNombreView=null;
     public  TextView  textEmailView=null;
@@ -49,20 +49,20 @@ public class PerfilFragment extends Fragment implements Callback<ClienteResponse
 
     private void obtenerDatosClientes() {
         String idCliente = "9";
-        Call<ClienteResponse>  call= NetworkApiAdapter.getApiService().getCliente(idCliente);
+        Call<ClienteRespuestaAntiguo>  call= NetworkApiAdapter.getApiService().getCliente(idCliente);
         call.enqueue(this);
     }
 
 
     @Override
-    public void onResponse(Call<ClienteResponse> call, Response<ClienteResponse> response) {
+    public void onResponse(Call<ClienteRespuestaAntiguo> call, Response<ClienteRespuestaAntiguo> response) {
     if(response.isSuccessful()){
-    ClienteResponse respuestaServicioCliente=response.body();
+    ClienteRespuestaAntiguo respuestaServicioCliente=response.body();
     poblarPerfil(response.body());
     }
     }
 
-    private void poblarPerfil(ClienteResponse body) {
+    private void poblarPerfil(ClienteRespuestaAntiguo body) {
         textNombreView.setText(body.getNombre()+" "+body.getApellidoPaterno()+" "+body.getApellidoMaterno());
         textNumeroContratoView.setText("Contrato Definido");
         textNumeroTelefonoView.setText(body.getTelefono());
@@ -73,7 +73,7 @@ public class PerfilFragment extends Fragment implements Callback<ClienteResponse
 
 
     @Override
-    public void onFailure(Call<ClienteResponse> call, Throwable t) {
+    public void onFailure(Call<ClienteRespuestaAntiguo> call, Throwable t) {
 
     }
 }

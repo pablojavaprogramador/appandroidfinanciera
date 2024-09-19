@@ -1,4 +1,4 @@
-package com.touchizen.drawerwithbottomnavigation.io.empleos;
+package com.touchizen.drawerwithbottomnavigation.ui.empleos;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;

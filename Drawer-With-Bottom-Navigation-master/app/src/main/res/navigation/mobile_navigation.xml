@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/nav_empleos"
-        android:name="com.touchizen.drawerwithbottomnavigation.io.empleos.EmpleosFragment"
+        android:name="com.touchizen.drawerwithbottomnavigation.ui.empleos.EmpleosFragment"
         android:label="@string/menu_empleos"
         tools:layout="@layout/fragment_empleos" />
 

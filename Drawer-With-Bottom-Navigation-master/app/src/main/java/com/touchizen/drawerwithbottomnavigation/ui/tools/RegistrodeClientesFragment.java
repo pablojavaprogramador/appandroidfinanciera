@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.touchizen.drawerwithbottomnavigation.R;
-import com.touchizen.drawerwithbottomnavigation.io.request.Clientes;
+import com.touchizen.drawerwithbottomnavigation.io.request.ClientesRequestAntiguo;
 import com.touchizen.drawerwithbottomnavigation.network.NetworkApiAdapter;
 
 import retrofit2.Call;
@@ -51,7 +51,7 @@ public class RegistrodeClientesFragment extends Fragment implements Callback<Voi
             @Override
             public void onClick(View v) {
                 Log.i("boton","se presiono");
-                Clientes enviodatos=new Clientes();
+                ClientesRequestAntiguo enviodatos=new ClientesRequestAntiguo();
 
                 enviodatos.setNombre(nombreClieten_Cliente.getText().toString());
                 enviodatos.setApellidoPaterno(apellidoPaternoReferencia_Cliente.getText().toString());
@@ -75,7 +75,7 @@ public class RegistrodeClientesFragment extends Fragment implements Callback<Voi
 
 
     @SuppressLint("LongLogTag")
-    private void RegistrarClientes(Clientes enviodatos) {
+    private void RegistrarClientes(ClientesRequestAntiguo enviodatos) {
 
         Call<Void> call = NetworkApiAdapter.getApiService().RegistroClientes(enviodatos);
         call.enqueue(this);

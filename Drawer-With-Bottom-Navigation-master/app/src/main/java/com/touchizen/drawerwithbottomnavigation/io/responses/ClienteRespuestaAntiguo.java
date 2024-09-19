@@ -1,6 +1,6 @@
 package com.touchizen.drawerwithbottomnavigation.io.responses;
 
-public class ClienteResponse {
+public class ClienteRespuestaAntiguo {
     private int id;
     private String nombre;
     private String apellidoMaterno;

@@ -1,6 +1,6 @@
 package com.touchizen.drawerwithbottomnavigation.io.request;
 
-public class Clientes {
+public class ClientesRequestAntiguo {
 
     private String nombre;
     private String apellidoMaterno;

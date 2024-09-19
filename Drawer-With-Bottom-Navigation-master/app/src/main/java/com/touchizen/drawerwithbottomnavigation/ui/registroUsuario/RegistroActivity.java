@@ -1,13 +1,16 @@
 package com.touchizen.drawerwithbottomnavigation.ui.registroUsuario;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +29,7 @@ public class RegistroActivity extends AppCompatActivity {
     private CheckBox avisoPrivacidad;
     private RegistroViewModel registroViewModel;
     private AlertDialog progressDialog;
+    private ImageView eyePassword, eyeConfirmarPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +37,15 @@ public class RegistroActivity extends AppCompatActivity {
         setContentView(R.layout.fragment_registro);
 
         // Inicializar los campos de entrada
-        nombreCliente = findViewById(R.id.id_Persona);
+        nombreCliente = findViewById(R.id.editTextNombre);
         correoElectronico = findViewById(R.id.editTextEmailAddress);
         password = findViewById(R.id.editTextPassword);
         confirmarPassword = findViewById(R.id.editTextConfirmarPassword);
         avisoPrivacidad = findViewById(R.id.checkBoxAvisoPrivacidad);
         Button botonRegistrar = findViewById(R.id.buttonRegistrarUsuario);
         TextView inicioSesionLabel = findViewById(R.id.link_to_login);
+        eyePassword = findViewById(R.id.eyePassword);
+        eyeConfirmarPassword = findViewById(R.id.eyeConfirmarPassword); // Nuevo campo
 
         // Inicializar ViewModel con el Factory
         UserRepository userRepository = new UserRepository(NetworkApiAdapter.getApiService());
@@ -53,7 +59,6 @@ public class RegistroActivity extends AppCompatActivity {
             if (status.equals("Registro exitoso, Validacion Pendiente")) {
                 Toast.makeText(this, "Registro exitoso, por favor verifica tu correo", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(RegistroActivity.this, TokenValidationActivity.class);
-                // Enviar el token como extra (este es un ejemplo, adapta según cómo obtengas el token)
                 intent.putExtra("TOKEN", "b6f775d2-b365-47b3-8b7e-d8473e161c67");
                 startActivity(intent);
                 finish();
@@ -85,6 +90,30 @@ public class RegistroActivity extends AppCompatActivity {
             Intent intent = new Intent(RegistroActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
+        });
+
+        // Configurar el ícono para mostrar/ocultar la contraseña
+        eyePassword.setOnClickListener(v -> {
+            if (password.getInputType() == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) {
+                password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                eyePassword.setImageResource(R.drawable.ic_visibility_off); // Cambiar a ícono de ojo cerrado
+            } else {
+                password.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                eyePassword.setImageResource(R.drawable.ic_visibility); // Cambiar a ícono de ojo abierto
+            }
+            password.setSelection(password.getText().length()); // Mantener el cursor al final
+        });
+
+        // Configurar el ícono para mostrar/ocultar la confirmación de contraseña
+        eyeConfirmarPassword.setOnClickListener(v -> {
+            if (confirmarPassword.getInputType() == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) {
+                confirmarPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                eyeConfirmarPassword.setImageResource(R.drawable.ic_visibility_off); // Cambiar a ícono de ojo cerrado
+            } else {
+                confirmarPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                eyeConfirmarPassword.setImageResource(R.drawable.ic_visibility); // Cambiar a ícono de ojo abierto
+            }
+            confirmarPassword.setSelection(confirmarPassword.getText().length()); // Mantener el cursor al final
         });
     }
 

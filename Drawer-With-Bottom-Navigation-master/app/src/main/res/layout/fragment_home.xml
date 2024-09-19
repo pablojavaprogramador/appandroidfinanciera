@@ -1,99 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
 
-
+    <!-- Contenedor de la información del verbo -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/baseline_add_circle_outline_24"
         android:orientation="vertical"
-        tools:ignore="MissingConstraints">
-
+        android:padding="16dp"
+        android:layout_marginBottom="16dp">
 
         <TextView
-            android:id="@+id/text_nombre"
-            android:layout_width="match_parent"
+            android:id="@+id/verbTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:textAlignment="center"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-
-            />
-
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/text_credito_disponible"
+            android:id="@+id/conjugationsContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="TextView"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_nombre"
-            tools:layout_editor_absoluteX="164dp" />
-
+            android:layout_marginTop="8dp" />
 
         <TextView
-            android:id="@+id/text_Email"
+            android:id="@+id/pronunciationContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="TextView"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_credito_disponible"
-            tools:layout_editor_absoluteX="164dp" />
+            android:layout_marginTop="8dp" />
 
         <TextView
-            android:id="@+id/text_Activate"
+            android:id="@+id/comparativesContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="TextView"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_Email"
-            tools:layout_editor_absoluteX="164dp" />
+            android:layout_marginTop="8dp" />
 
         <TextView
-            android:id="@+id/text_Saldo"
+            android:id="@+id/pronounsContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="TextView"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_Activate"
-            tools:layout_editor_absoluteX="164dp" />
+            android:layout_marginTop="8dp" />
 
+        <TextView
+            android:id="@+id/adverbsPrepositionsContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
 
-        <ListView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/listViewHome"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true" />
+        <TextView
+            android:id="@+id/connectorsContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/conversationContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Botones de acción -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/exampleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Example" />
+
+        <Button
+            android:id="@+id/audioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Audio"
+            android:layout_marginStart="8dp" />
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_revert"
+            android:contentDescription="hola"
+            android:layout_marginStart="8dp"
+            android:background="?attr/selectableItemBackground" />
+
+    </LinearLayout>
+
+</LinearLayout>

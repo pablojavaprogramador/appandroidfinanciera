@@ -25,8 +25,9 @@ public class PasswordResetConfirmationActivity extends AppCompatActivity {
 
     private EditText tokenEditText;
     private EditText newPasswordEditText;
+    private EditText confirmacionPassword;
     private Button confirmButton;
-    private TextView messageTextView;
+    private TextView messageTextView; // Cambiado aquí
     private TextView linkToLogin;
     private ApiService apiService;
 
@@ -37,27 +38,35 @@ public class PasswordResetConfirmationActivity extends AppCompatActivity {
 
         tokenEditText = findViewById(R.id.editTextToken);
         newPasswordEditText = findViewById(R.id.editTextNewPassword);
+        confirmacionPassword = findViewById(R.id.editTextConfirmationPassword);
         confirmButton = findViewById(R.id.buttonConfirmReset);
-        messageTextView = findViewById(R.id.resetConfirmationMessage);
         linkToLogin = findViewById(R.id.link_to_login);
+        messageTextView = findViewById(R.id.resetConfirmationMessage); // Uso del ID correcto
 
         apiService = NetworkApiAdapter.getApiService();
 
         confirmButton.setOnClickListener(v -> {
             String token = tokenEditText.getText().toString().trim();
             String newPassword = newPasswordEditText.getText().toString().trim();
-            if (!token.isEmpty() && !newPassword.isEmpty()) {
-                confirmResetPassword(token, newPassword);
-            } else {
+            String confirmPassword = confirmacionPassword.getText().toString().trim();
+
+            if (token.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
                 messageTextView.setText("Por favor complete todos los campos.");
+                return;
             }
+
+            if (!newPassword.equals(confirmPassword)) {
+                Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            confirmResetPassword(token, newPassword);
         });
 
         linkToLogin.setOnClickListener(v -> {
-            // Navegar a la pantalla de inicio de sesión
             Intent intent = new Intent(PasswordResetConfirmationActivity.this, LoginActivity.class);
             startActivity(intent);
-            finish(); // Opcional: Cierra la actividad actual
+            finish();
         });
     }
 
@@ -71,14 +80,15 @@ public class PasswordResetConfirmationActivity extends AppCompatActivity {
                     if (resetResponse != null && resetResponse.isSuccess()) {
                         messageTextView.setText("Contraseña restablecida exitosamente.");
                         Toast.makeText(PasswordResetConfirmationActivity.this, "Token validado exitosamente", Toast.LENGTH_SHORT).show();
-                        // Redirigir al login después de la validación exitosa
                         Intent intent = new Intent(PasswordResetConfirmationActivity.this, LoginActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
+                        Toast.makeText(PasswordResetConfirmationActivity.this, "Token invalido o expirado", Toast.LENGTH_SHORT).show();
                         messageTextView.setText("Token inválido o expirado.");
                     }
                 } else {
+                    Toast.makeText(PasswordResetConfirmationActivity.this, "Token invalido o expirado", Toast.LENGTH_SHORT).show();
                     messageTextView.setText("Token inválido o expirado.");
                 }
             }

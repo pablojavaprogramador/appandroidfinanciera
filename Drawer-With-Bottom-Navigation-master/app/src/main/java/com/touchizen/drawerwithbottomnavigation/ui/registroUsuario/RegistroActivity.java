@@ -44,6 +44,7 @@ public class RegistroActivity extends AppCompatActivity {
         avisoPrivacidad = findViewById(R.id.checkBoxAvisoPrivacidad);
         Button botonRegistrar = findViewById(R.id.buttonRegistrarUsuario);
         TextView inicioSesionLabel = findViewById(R.id.link_to_login);
+        TextView validacionSesionLabel=findViewById(R.id.link_to_token);
         eyePassword = findViewById(R.id.eyePassword);
         eyeConfirmarPassword = findViewById(R.id.eyeConfirmarPassword); // Nuevo campo
 
@@ -91,6 +92,13 @@ public class RegistroActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+        //Redirigir a la actividad de inicio de sesion
+        validacionSesionLabel.setOnClickListener(v->{
+            Intent intent = new Intent(RegistroActivity.this, TokenValidationActivity.class);
+            startActivity(intent);
+            finish();
+        });
+
 
         // Configurar el ícono para mostrar/ocultar la contraseña
         eyePassword.setOnClickListener(v -> {

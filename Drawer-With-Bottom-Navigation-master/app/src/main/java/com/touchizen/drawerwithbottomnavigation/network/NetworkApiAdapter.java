@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetworkApiAdapter {
 
-    private static final String BASE_URL = "http://192.168.1.8:9090/";
+    private static final String BASE_URL = "http://192.168.1.2:9090/";
 
     public static ApiService getApiService() {
         Retrofit retrofit = new Retrofit.Builder()

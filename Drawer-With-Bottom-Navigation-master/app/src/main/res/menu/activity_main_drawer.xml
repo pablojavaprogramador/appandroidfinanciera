@@ -42,6 +42,11 @@
                 android:id="@+id/nav_terminos"
                 android:icon="@drawable/ic_menu_terminos"
                 android:title="@string/menu_terminos" />
+
+            <item
+                android:id="@+id/nav_cerrar"
+                android:icon="@drawable/ic_menu_close"
+                android:title="@string/menu_cerrar" />
         </menu>
     </item>
 

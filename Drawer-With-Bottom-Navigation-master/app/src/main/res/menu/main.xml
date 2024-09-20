@@ -8,6 +8,8 @@
         android:title="Salir de la App"
         app:showAsAction="ifRoom" />
 
+
+
     <item
         android:id="@+id/Conexion"
         android:icon="@drawable/baseline_satellite_alt_24"

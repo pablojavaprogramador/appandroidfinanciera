@@ -1,11 +1,9 @@
 package com.touchizen.drawerwithbottomnavigation;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -24,6 +22,7 @@ import com.touchizen.drawerwithbottomnavigation.ui.login.LoginActivity;
 
 public class PrincipalActivity extends AppCompatActivity {
 
+
     private static final float END_SCALE = 0.85f;
     private AppBarConfiguration mAppBarConfiguration;
     private NavController navController;
@@ -37,36 +36,28 @@ public class PrincipalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
 
-
         initToolbar();
         initFab();
         initNavigation();
-       // showBottomNavigation(false);
     }
 
     private void initToolbar() {
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
     }
 
     private void initFab() {
-
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Snackbar.make(view, "Aun no hay notificaciones", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
-
     }
 
     private void initNavigation() {
-
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         bottomNavView = findViewById(R.id.bottom_nav_view);
@@ -89,26 +80,21 @@ public class PrincipalActivity extends AppCompatActivity {
                 R.id.bottom_notifications,
                 R.id.bottom_ayuda
         )
-
                 .setDrawerLayout(drawer)
                 .build();
+
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-
         NavigationUI.setupWithNavController(navigationView, navController);
         NavigationUI.setupWithNavController(bottomNavView, navController);
-
 
         animateNavigationDrawer();
     }
 
-
     private void animateNavigationDrawer() {
-//        drawerLayout.setScrimColor(getResources().getColor(R.color.text_brown));
         drawer.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
-
                 // Scale the View based on current slide offset
                 final float diffScaledOffset = slideOffset * (1 - END_SCALE);
                 final float offsetScale = 1 - diffScaledOffset;
@@ -124,34 +110,38 @@ public class PrincipalActivity extends AppCompatActivity {
         });
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
-
-
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-// Handle item selection
-        switch (item.getItemId()) {
-//            case R.id.SalirApp:
-//                Intent intent = new Intent(PrincipalActivity.this, LoginActivity.class);
-//                startActivity(intent);
-//                System.exit(0);
-//                return true;
-//            case R.id.Conexion:
-//                Toast.makeText(this, "Boton Conexion", Toast.LENGTH_SHORT).show();
-//                return true;
-//            case R.id.Chatbot:
-//                Toast.makeText(this, "Boton ChatBot", Toast.LENGTH_SHORT).show();
-//                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        // Handle item selection
+
+            if (item.getItemId() == R.id.SalirApp) {
+                // Cierra la aplicación
+                finish();
+                System.exit(0);
+                return true;
+            }else if (item.getItemId() == R.id.SalirApp){
+                finish();
+                System.exit(0);
+                return true;
+            } else if (item.getItemId()==R.id.Conexion){
+                finish();
+                System.exit(0);
+                return true;
+
+            }
+        {
+
         }
+            return super.onOptionsItemSelected(item);
+
+
     }
 
     @Override
@@ -160,7 +150,4 @@ public class PrincipalActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
-
-
 }

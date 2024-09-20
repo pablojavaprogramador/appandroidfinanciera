@@ -46,6 +46,7 @@
     <string name="show_password">mostrar contraseña</string>
 
 
+
     <string-array name="recargas">
         <item>30</item>
         <item>50</item>

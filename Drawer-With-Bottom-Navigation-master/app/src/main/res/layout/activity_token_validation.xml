@@ -1,28 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="24dp"
+    android:gravity="center"
+    android:background="#132049">
+    <TextView
+        android:id="@+id/resetPasswordConfirmationTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activa tu cuenta"
+        android:textSize="24sp"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="32dp"/>
 
+    <!-- Campo de Token -->
     <EditText
         android:id="@+id/editTextToken"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese el token" />
+        android:hint="Ingrese el token"
+        android:padding="12dp"
+        android:background="@android:color/white"
+        android:textColor="#333333"
+        android:textSize="16sp"
+        android:layout_marginBottom="24dp"
+        android:minHeight="50dp" />
 
+    <!-- Botón para verificar token -->
     <Button
         android:id="@+id/buttonVerifyToken"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Verificar Token" />
+        android:text="Verificar Token"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#0b84aa"
+        android:padding="12dp"
+        android:textSize="18sp"
+        android:layout_marginBottom="24dp" />
 
+    <!-- Estado de validación -->
     <TextView
         android:id="@+id/statusTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Estado de la validación"
         android:textSize="18sp"
-        android:layout_marginTop="16dp" />
+        android:textColor="#E91E63"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal" />
+
+    <!-- Enlace para iniciar sesión -->
+    <TextView
+        android:id="@+id/login_reset_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¡Iniciar Sesión Aquí!"
+        android:textColor="#0b84aa"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

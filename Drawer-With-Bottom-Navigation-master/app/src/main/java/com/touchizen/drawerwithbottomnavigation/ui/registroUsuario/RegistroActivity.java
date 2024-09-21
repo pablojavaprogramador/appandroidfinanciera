@@ -78,10 +78,20 @@ public class RegistroActivity extends AppCompatActivity {
 
             if (!pass.equals(confirmPass)) {
                 Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
-            } else if (!aceptoAvisoPrivacidad) {
+            }else if (email.isEmpty() ){
+
+                Toast.makeText(this, "El correo no puede ir vacio", Toast.LENGTH_SHORT).show();
+            }
+
+            else if (nombre.isEmpty() || pass.isEmpty()){
+                Toast.makeText(this, "El usuario y pass no debe estar vacio", Toast.LENGTH_SHORT).show();
+            } else if (password==null||password.length()<5) {
+                Toast.makeText(this, "Las contraseñas tienen que tener 6 digitos ", Toast.LENGTH_SHORT).show();
+            }else if (!aceptoAvisoPrivacidad) {
                 Toast.makeText(this, "Debes aceptar el aviso de privacidad", Toast.LENGTH_SHORT).show();
             } else {
                 showProgressDialog(); // Mostrar el diálogo de progreso
+
                 registroViewModel.registerUser(nombre, email, pass, aceptoAvisoPrivacidad);
             }
         });

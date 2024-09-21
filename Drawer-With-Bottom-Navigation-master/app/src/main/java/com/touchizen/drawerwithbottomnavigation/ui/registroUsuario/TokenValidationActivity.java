@@ -21,6 +21,7 @@ public class TokenValidationActivity extends AppCompatActivity {
     private EditText tokenEditText;
     private Button verifyButton;
     private TextView statusTextView;
+    private TextView reset_return_longin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class TokenValidationActivity extends AppCompatActivity {
         tokenEditText = findViewById(R.id.editTextToken);
         verifyButton = findViewById(R.id.buttonVerifyToken);
         statusTextView = findViewById(R.id.statusTextView);
+        reset_return_longin = findViewById(R.id.login_reset_password);
 
         // Inicializar ViewModel con el Factory
         UserRepository userRepository = new UserRepository(NetworkApiAdapter.getApiService());
@@ -46,7 +48,16 @@ public class TokenValidationActivity extends AppCompatActivity {
                 Intent intent = new Intent(TokenValidationActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
+            } else if (status.startsWith("Error:")) { // Manejo de errores
+                Toast.makeText(this, status, Toast.LENGTH_SHORT).show();
             }
+        });
+
+        // Redirigir a la actividad de inicio de sesión
+        reset_return_longin.setOnClickListener(v -> {
+            Intent intent = new Intent(TokenValidationActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         });
 
         // Configura el botón para verificar el token

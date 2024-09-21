@@ -1,7 +1,7 @@
 package com.touchizen.drawerwithbottomnavigation.data.model;
 
 public class RequestRegistro {
-    private String login;
+    private String usuario;
     private String email;
     private String password;
     private boolean aceptoAvisoPrivacidad;
@@ -14,12 +14,12 @@ public class RequestRegistro {
         this.aceptoAvisoPrivacidad = aceptoAvisoPrivacidad;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getEmail() {

@@ -22,6 +22,7 @@ public class PasswordResetRequestActivity extends AppCompatActivity {
     private Button sendRequestButton;
     private TextView messageTextView;
     private TextView linkToLoginTextView;
+    private TextView linktoTokenValidation;
     private ApiService apiService;
     private ProgressDialogHelper progressDialogHelper;
 
@@ -34,7 +35,7 @@ public class PasswordResetRequestActivity extends AppCompatActivity {
         sendRequestButton = findViewById(R.id.buttonSendResetRequest);
         messageTextView = findViewById(R.id.resetPasswordMessage);
         linkToLoginTextView = findViewById(R.id.link_to_login);
-
+        linktoTokenValidation=findViewById(R.id.link_to_token_reset);
         apiService = NetworkApiAdapter.getApiService();
         progressDialogHelper = new ProgressDialogHelper(this);
 
@@ -52,6 +53,14 @@ public class PasswordResetRequestActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+
+
+        linktoTokenValidation.setOnClickListener(v -> {
+            Intent intent = new Intent(PasswordResetRequestActivity.this, PasswordResetConfirmationActivity.class);
+            startActivity(intent);
+            finish();
+        });
+
     }
 
     private void sendResetPasswordRequest(String email) {

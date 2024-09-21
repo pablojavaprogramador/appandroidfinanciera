@@ -4,12 +4,16 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.touchizen.drawerwithbottomnavigation.io.responses.ErrorResponse;
 import com.touchizen.drawerwithbottomnavigation.data.model.RequestRegistro;
 import com.touchizen.drawerwithbottomnavigation.data.repository.UserRepository;
+
+import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import com.google.gson.Gson; // Asegúrate de importar Gson
 
 public class RegistroViewModel extends ViewModel {
 
@@ -23,7 +27,7 @@ public class RegistroViewModel extends ViewModel {
 
     public void registerUser(String usuario, String email, String password, boolean avisoPrivacidad) {
         RequestRegistro request = new RequestRegistro();
-        request.setLogin(usuario);
+        request.setUsuario(usuario);
         request.setEmail(email);
         request.setPassword(password);
         request.setAceptoAvisoPrivacidad(avisoPrivacidad);
@@ -34,7 +38,13 @@ public class RegistroViewModel extends ViewModel {
                 if (response.isSuccessful()) {
                     _status.setValue("Registro exitoso, Validacion Pendiente");
                 } else {
-                    _status.setValue("Error en el registro: " + response.message());
+                    try {
+                        // Intentar obtener el cuerpo de la respuesta de error
+                        ErrorResponse errorResponse = new Gson().fromJson(response.errorBody().string(), ErrorResponse.class);
+                        _status.setValue("Error: " + errorResponse.getDescription());
+                    } catch (Exception e) {
+                        _status.setValue("Error en el registro: " + e.getMessage());
+                    }
                 }
             }
 

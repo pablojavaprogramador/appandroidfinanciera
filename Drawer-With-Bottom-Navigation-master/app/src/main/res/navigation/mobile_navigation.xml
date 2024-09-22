@@ -65,10 +65,10 @@
         tools:layout="@layout/fragment_estadosfinancieros" />
 
     <fragment
-        android:id="@+id/bottom_oportunidades"
-        android:name="com.tecnoplacita.codespeak.ui.oportunidades.OportunidadesFragment"
-        android:label="@string/title_oportunidades"
-        tools:layout="@layout/fragment_oportunidades" />
+        android:id="@+id/bottom_verbos"
+        android:name="com.tecnoplacita.codespeak.ui.verbos.VerbosFragment"
+        android:label="@string/title_verbos"
+        tools:layout="@layout/fragment_verbos" />
 
     <fragment
         android:id="@+id/bottom_notifications"

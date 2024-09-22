@@ -1,4 +1,4 @@
-package com.tecnoplacita.codespeak.ui.oportunidades;
+package com.tecnoplacita.codespeak.ui.referencias;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -22,8 +22,7 @@ import com.tecnoplacita.codespeak.ui.pagoservicios.PagoServiciosFragment;
 import com.tecnoplacita.codespeak.ui.recargas.RecargasFragment;
 
 
-
-public class OportunidadesFragment extends Fragment {
+public class ReferenciasPersonalesFragment extends Fragment {
 
 
 
@@ -65,7 +64,7 @@ public class OportunidadesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_oportunidades, container, false);
+        View root = inflater.inflate(R.layout.fragment_verbos, container, false);
         final ListView lista = (ListView) root.findViewById(R.id.listView1);
 //        adapter = new ListViewAdapterOportunidades(this, titulo, mensaje,imagenes,inflater);
 //        lista.setAdapter(adapter);

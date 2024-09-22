@@ -7,78 +7,78 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.touchizen.drawerwithbottomnavigation.ui.home.HomeFragment"
+        android:name="com.tecnoplacita.codespeak.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_perfil"
-        android:name="com.touchizen.drawerwithbottomnavigation.ui.perfil.PerfilFragment"
+        android:name="com.tecnoplacita.codespeak.ui.perfil.PerfilFragment"
         android:label="@string/menu_perfil"
         tools:layout="@layout/fragment_perfil" />
 
     <fragment
         android:id="@+id/nav_domicilios"
-        android:name="com.touchizen.drawerwithbottomnavigation.ui.domicilios.DomicilioFragment"
+        android:name="com.tecnoplacita.codespeak.ui.domicilios.DomicilioFragment"
         android:label="@string/menu_domicilio"
         tools:layout="@layout/fragment_domicilios" />
 
     <fragment
         android:id="@+id/nav_empleos"
-        android:name="com.touchizen.drawerwithbottomnavigation.ui.empleos.EmpleosFragment"
+        android:name="com.tecnoplacita.codespeak.ui.empleos.EmpleosFragment"
         android:label="@string/menu_empleos"
         tools:layout="@layout/fragment_empleos" />
 
     <fragment
         android:id="@+id/nav_registroUsuario"
-        android:name="com.touchizen.drawerwithbottomnavigation.ui.tools.RegistrodeClientesFragment"
+        android:name="com.tecnoplacita.codespeak.ui.tools.RegistrodeClientesFragment"
         android:label="@string/menu_registro"
         tools:layout="@layout/fragment_registro" />
 
     <fragment
         android:id="@+id/nav_referencias"
-        android:name="com.touchizen.drawerwithbottomnavigation.ui.referencias.ReferenciasPersonalesFragment"
+        android:name="com.tecnoplacita.codespeak.ui.referencias.ReferenciasPersonalesFragment"
         android:label="@string/title_referencias"
         tools:layout="@layout/fragment_referencias" />
     <fragment
         android:id="@+id/nav_registrocliente"
-        android:name="com.touchizen.drawerwithbottomnavigation.ui.tools.RegistrodeClientesFragment"
+        android:name="com.tecnoplacita.codespeak.ui.tools.RegistrodeClientesFragment"
         android:label="Mi Perfil"
         tools:layout="@layout/fragment_clientes" />
     <fragment
         android:id="@+id/nav_terminos"
-        android:name="com.touchizen.drawerwithbottomnavigation.ui.tools.TerminosFragment"
+        android:name="com.tecnoplacita.codespeak.ui.tools.TerminosFragment"
         android:label="@string/menu_terminos"
         tools:layout="@layout/fragment_terminos" />
 
 
     <fragment
         android:id="@+id/bottom_home"
-        android:name="com.touchizen.drawerwithbottomnavigation.ui.home.HomeFragment"
+        android:name="com.tecnoplacita.codespeak.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/bottom_estadosfinancieros"
-        android:name="com.touchizen.drawerwithbottomnavigation.ui.estados.EstadosFinnancierosFragment"
+        android:name="com.tecnoplacita.codespeak.ui.estados.EstadosFinnancierosFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_estadosfinancieros" />
 
     <fragment
         android:id="@+id/bottom_oportunidades"
-        android:name="com.touchizen.drawerwithbottomnavigation.ui.oportunidades.OportunidadesFragment"
+        android:name="com.tecnoplacita.codespeak.ui.oportunidades.OportunidadesFragment"
         android:label="@string/title_oportunidades"
         tools:layout="@layout/fragment_oportunidades" />
 
     <fragment
         android:id="@+id/bottom_notifications"
-        android:name="com.touchizen.drawerwithbottomnavigation.ui.notificaciones.NotificacionesFragment"
+        android:name="com.tecnoplacita.codespeak.ui.notificaciones.NotificacionesFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notificaciones" />
 
     <fragment
         android:id="@+id/bottom_ayuda"
-        android:name="com.touchizen.drawerwithbottomnavigation.ui.ayuda.AyudaFragment"
+        android:name="com.tecnoplacita.codespeak.ui.ayuda.AyudaFragment"
         android:label="@string/title_ayuda"
         tools:layout="@layout/fragment_ayuda" />
 </navigation>

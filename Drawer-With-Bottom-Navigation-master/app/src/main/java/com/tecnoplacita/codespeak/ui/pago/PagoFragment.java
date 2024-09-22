@@ -1,0 +1,29 @@
+package com.tecnoplacita.codespeak.ui.pago;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
+import com.tecnoplacita.codespeak.R;
+
+
+public class PagoFragment extends Fragment {
+TextView textCliente=null;
+EditText editTarjeta=null;
+Button buttonPago=null;
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+
+        View root = inflater.inflate(R.layout.fragment_pagoderecarga, container, false);
+
+
+        return root;
+    }
+}

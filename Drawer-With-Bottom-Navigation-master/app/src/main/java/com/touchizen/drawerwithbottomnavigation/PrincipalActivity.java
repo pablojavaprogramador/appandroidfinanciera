@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -18,8 +19,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.touchizen.drawerwithbottomnavigation.ui.ads.AdMobManager;
 import com.touchizen.drawerwithbottomnavigation.ui.login.LoginActivity;
-
+import com.google.android.gms.ads.MobileAds;
 public class PrincipalActivity extends AppCompatActivity {
 
 
@@ -30,11 +32,23 @@ public class PrincipalActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private BottomNavigationView bottomNavView;
     private CoordinatorLayout contentView;
+    private AdMobManager adMobManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+
+        // Inicializar Mobile Ads
+        adMobManager = new AdMobManager();
+        adMobManager.initializeAds(this);
+
+        // Cargar el anuncio de banner
+       // FrameLayout bannerContainer = findViewById(R.id.banner_container);
+        //adMobManager.loadBannerAd(this, bannerContainer);
+        // Cargar el anuncio de banner
+        FrameLayout bannerContainer = findViewById(R.id.banner_container);
+        adMobManager.loadBannerAd(this, bannerContainer);
 
         initToolbar();
         initFab();
@@ -51,6 +65,7 @@ public class PrincipalActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                adMobManager.showInterstitialAd(PrincipalActivity.this);
                 Snackbar.make(view, "Aun no hay notificaciones", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }

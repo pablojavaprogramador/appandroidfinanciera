@@ -14,6 +14,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
 
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8052183269578399~8014830852"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"

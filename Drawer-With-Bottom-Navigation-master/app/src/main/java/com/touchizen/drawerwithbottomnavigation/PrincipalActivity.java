@@ -43,12 +43,6 @@ public class PrincipalActivity extends AppCompatActivity {
         adMobManager = new AdMobManager();
         adMobManager.initializeAds(this);
 
-        // Cargar el anuncio de banner
-       // FrameLayout bannerContainer = findViewById(R.id.banner_container);
-        //adMobManager.loadBannerAd(this, bannerContainer);
-        // Cargar el anuncio de banner
-        FrameLayout bannerContainer = findViewById(R.id.banner_container);
-        adMobManager.loadBannerAd(this, bannerContainer);
 
         initToolbar();
         initFab();

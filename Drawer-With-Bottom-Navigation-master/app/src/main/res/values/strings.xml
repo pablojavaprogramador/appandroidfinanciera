@@ -23,7 +23,7 @@
     <!-- Bottom Navigation -->
     <string name="title_home">Home</string>
     <string name="title_dashboard">Estados</string>
-    <string name="title_verbos">Verbos</string>
+    <string name="title_chat">Chat</string>
     <string name="title_notifications">Notificaciones</string>
     <string name="title_ayuda">Ayuda</string>
     <string name="title_negocio">Negocio</string>

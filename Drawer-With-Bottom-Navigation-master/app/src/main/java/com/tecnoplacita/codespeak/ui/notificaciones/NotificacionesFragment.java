@@ -64,7 +64,7 @@ public class NotificacionesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_verbos, container, false);
+        View root = inflater.inflate(R.layout.fragment_chat, container, false);
         final ListView lista = (ListView) root.findViewById(R.id.listView1);
 //        adapter = new ListViewAdapterOportunidades(this, titulo, mensaje,imagenes,inflater);
 //        lista.setAdapter(adapter);

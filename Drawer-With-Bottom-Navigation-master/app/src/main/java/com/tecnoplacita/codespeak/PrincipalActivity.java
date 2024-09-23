@@ -83,7 +83,7 @@ public class PrincipalActivity extends AppCompatActivity {
                 R.id.nav_registrocliente,
                 R.id.bottom_home,
                 R.id.bottom_estadosfinancieros,
-                R.id.bottom_verbos,
+                R.id.bottom_chat,
                 R.id.bottom_notifications,
                 R.id.bottom_ayuda
         )

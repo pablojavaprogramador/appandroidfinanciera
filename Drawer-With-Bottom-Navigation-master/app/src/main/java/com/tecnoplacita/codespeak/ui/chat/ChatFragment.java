@@ -1,68 +1,88 @@
 package com.tecnoplacita.codespeak.ui.chat;
 
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.Button;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.widget.EditText;
+
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.tecnoplacita.codespeak.R;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-public class ChatFragment extends Fragment {
-    private ChatViewModel viewModel;
+public class ChatFragment extends Fragment implements TextToSpeech.OnInitListener {
+    private ChatViewModel chatViewModel;
     private ChatAdapter chatAdapter;
-    private List<ChatMessage> chatMessages;
     private EditText inputMessage;
+    private TextToSpeech textToSpeech;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
+
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         inputMessage = view.findViewById(R.id.edit_text_message);
         Button sendButton = view.findViewById(R.id.button_send);
 
-        chatMessages = new ArrayList<>();
-        chatAdapter = new ChatAdapter(chatMessages);
+        chatAdapter = new ChatAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(chatAdapter);
 
-        viewModel = new ViewModelProvider(this, new ChatViewModelFactory()).get(ChatViewModel.class);
-        setupObservers();
-
-        sendButton.setOnClickListener(v -> {
-            String messageText = inputMessage.getText().toString();
-            if (!TextUtils.isEmpty(messageText)) {
-                sendMessage(messageText);
+        chatViewModel = new ViewModelProvider(this).get(ChatViewModel.class);
+        chatViewModel.getMessages().observe(getViewLifecycleOwner(), new Observer<List<ChatMessage>>() {
+            @Override
+            public void onChanged(List<ChatMessage> chatMessages) {
+                chatAdapter.setMessages(chatMessages);
+                recyclerView.scrollToPosition(chatMessages.size() - 1); // Desplazarse al último mensaje
             }
         });
+
+        sendButton.setOnClickListener(v -> {
+            String message = inputMessage.getText().toString();
+            if (!message.isEmpty()) {
+                chatViewModel.sendMessage(message);
+                inputMessage.setText(""); // Limpiar el EditText
+            }
+        });
+
+        // Inicializar TextToSpeech
+        textToSpeech = new TextToSpeech(getContext(), this);
 
         return view;
     }
 
-    private void sendMessage(String messageText) {
-        chatMessages.add(new ChatMessage(messageText, true)); // true for user message
-        chatAdapter.notifyItemInserted(chatMessages.size() - 1);
-        inputMessage.setText("");
-
-        viewModel.sendMessageToChatbot(messageText);
+    @Override
+    public void onInit(int status) {
+        if (status == TextToSpeech.SUCCESS) {
+            int result = textToSpeech.setLanguage(Locale.US);
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                // Manejar el error si el idioma no es compatible
+            }
+        }
     }
 
-    private void setupObservers() {
-        viewModel.getResponseLiveData().observe(getViewLifecycleOwner(), response -> {
-            chatMessages.add(new ChatMessage(response, false)); // false for bot message
-            chatAdapter.notifyItemInserted(chatMessages.size() - 1);
-        });
+    private void speak(String text) {
+        if (textToSpeech != null) {
+            textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (textToSpeech != null) {
+            textToSpeech.stop();
+            textToSpeech.shutdown(); // Liberar recursos
+        }
     }
 }

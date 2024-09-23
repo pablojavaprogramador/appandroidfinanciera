@@ -1,19 +1,19 @@
 package com.tecnoplacita.codespeak.ui.chat;
 
 public class ChatMessage {
-    private final String text;
-    private final boolean isUserMessage; // true if the message is from the user, false if it's from the bot
+    private String message;
+    private boolean isUser; // true si es del usuario, false si es del bot
 
-    public ChatMessage(String text, boolean isUserMessage) {
-        this.text = text;
-        this.isUserMessage = isUserMessage;
+    public ChatMessage(String message, boolean isUser) {
+        this.message = message;
+        this.isUser = isUser;
     }
 
-    public String getText() {
-        return text;
+    public String getMessage() {
+        return message;
     }
 
-    public boolean isUserMessage() {
-        return isUserMessage;
+    public boolean isUser() {
+        return isUser;
     }
 }

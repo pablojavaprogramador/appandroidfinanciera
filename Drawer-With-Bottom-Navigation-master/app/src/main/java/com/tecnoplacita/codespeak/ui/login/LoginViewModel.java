@@ -1,5 +1,8 @@
 package com.tecnoplacita.codespeak.ui.login;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -20,9 +23,10 @@ public class LoginViewModel extends ViewModel {
     private final MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
     private final MutableLiveData<LoginResult> loginResult = new MutableLiveData<>();
     private ApiService loginService;
+    private Context context;
 
-    public LoginViewModel(LoginDataSource loginDataSource) {
-        // Usa el adapter para obtener el ApiService
+    public LoginViewModel(LoginDataSource loginDataSource, Context context) {
+        this.context = context;
         loginService = NetworkApiAdapter.getApiService();
     }
 
@@ -41,10 +45,19 @@ public class LoginViewModel extends ViewModel {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if (response.isSuccessful()) {
                     LoginResponse loginResponse = response.body();
+                    saveToken(loginResponse.getToken());
                     loginResult.setValue(new LoginResult(new LoggedInUserView(email, "User")));
                 } else {
                     loginResult.setValue(new LoginResult(R.string.login_failed));
                 }
+            }
+
+            private void saveToken(String token) {
+                SharedPreferences sharedPreferences =
+                        context.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("JWT_TOKEN", token);
+                editor.apply();
             }
 
             @Override

@@ -33,7 +33,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory(new LoginDataSource()))
+        // Crear LoginViewModelFactory con LoginDataSource y el contexto
+        loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory(new LoginDataSource(), this))
                 .get(LoginViewModel.class);
 
         final EditText usernameEditText = findViewById(R.id.username);

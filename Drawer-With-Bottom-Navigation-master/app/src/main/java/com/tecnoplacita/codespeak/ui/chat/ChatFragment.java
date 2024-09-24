@@ -38,7 +38,8 @@ public class ChatFragment extends Fragment implements TextToSpeech.OnInitListene
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(chatAdapter);
 
-        chatViewModel = new ViewModelProvider(this).get(ChatViewModel.class);
+        chatViewModel = new ViewModelProvider(this, new ChatViewModelFactory(getContext())).get(ChatViewModel.class);
+
         chatViewModel.getMessages().observe(getViewLifecycleOwner(), new Observer<List<ChatMessage>>() {
             @Override
             public void onChanged(List<ChatMessage> chatMessages) {
